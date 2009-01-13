@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PACKAGES="nautilus-gksu nautilus-open-terminal nautilus-image-converter"
+
+if [ "$DISTRIB_ID" == "Ubuntu" ]; then
+    PACKAGES="$PACKAGES nautilus-script-audio-convert"
+fi
+
+sudo apt-get install -y --force-yes $PACKAGES

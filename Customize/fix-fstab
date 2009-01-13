@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Turn off fsck for vfat partitions
+FOUND=`grep vfat /etc/fstab`
+if [ -n "$FOUND" ]; then
+	echo '找到 vfat 分割區，正在修正 fstab...'
+	BAKFILE=/etc/fstab-`date +%F`.bak
+	cp /etc/fstab "$BAKFILE"
+	sed -r 's/^(.+vfat[[:space:]]+.*[[:space:]]+[[:digit:]]+[[:space:]]+)([[:digit:]]).*$/\10/g' "$BAKFILE" > /etc/fstab
+	echo "修正完成，原本的 /etc/fstab 檔已經備份到 $BAKFILE"
+else
+	echo '你的 fstab 內沒有 vfat 分割區，不需修正'
+fi
+
+# TODO: charset fix for cdroms

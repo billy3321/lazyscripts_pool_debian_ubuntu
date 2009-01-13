@@ -1,0 +1,78 @@
+#!/bin/bash
+# Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
+# Last Modified: 27 Dec 2008
+# Released under GNU General Public License
+# ie6 -> ie6_seluser.py -> ie6_after.sh
+
+# ie4linux requires cabextract, and we need to
+# install icoutils to extract the icon of internet explorer
+
+echo '開始安裝 Microsoft Internet Explorer 6.0 中文版...'
+
+export TOP_DIR=`pwd`
+export TMP_DIR='temp/ie6'
+
+# install cabextract and tool used to extract ie icon
+. scripts/add-apt-sources
+add_winehq
+apt-get -y --force-yes install wine icoutils cabextract unzip
+mkdir -p "$TMP_DIR"
+
+cd "$TMP_DIR"
+
+#download ie4linux
+#VERSION="2.99.0.1"
+wget -c "http://www.tatanka.com.br/ies4linux/downloads/ies4linux-latest.tar.gz"
+tar zxf ies4linux-latest.tar.gz
+cd ies4linux-*
+sed -i -e 's/\(pid=\$.\)\(wget.*$\)/\1LC_ALL=C LANG=C \2/' lib/functions.sh
+
+echo '執行 IE 安裝工具： ies4linux'
+export IE4LINUX_DIR=`pwd`
+
+cd $TOP_DIR
+scripts/ie6_seluser.py $IE4LINUX_DIR
+
+#while [ ! -h "/home/$REAL_USER/bin/ie6" ]
+#do
+#    su -c "./ies4linux --no-gui --locale TW --no-desktop-icon" $REAL_USER
+#    sleep 1
+#done
+
+#cd ..
+
+# Since the desktop icon provided by ies4linux is extremely ugly,
+# we create our own desktop icon using the original icon of IE6.
+# extract icon from IE 6
+
+#wrestool --type=14 --name=-32528 -x --output=. "$REAL_HOME/.ies4linux/ie6/drive_c/Program Files/Internet Explorer/iexplore.exe"
+#icotool -x --icon --width=48 --height=48  --bit-depth=32 --output=. *.ico
+# move the generated icon to system icon dir
+#mv "iexplore.exe_14_32528_1028_7_48x48x32.png" "/usr/share/pixmaps/msie6.png"
+
+#cat > "/usr/share/applications/msie6.desktop" << EOF
+#[Desktop Entry]
+#Version=1.0
+#Icon=/usr/share/pixmaps/msie6.png
+#Exec=$REAL_HOME/.ies4linux/bin/ie6
+#Name=Internet Explorer 6.0
+#GenericName=Web Browser
+#GenericName[zh_TW]=網路瀏覽器
+#Comment=Microsoft Internet Explorer 6.0 瀏覽器
+#Encoding=UTF-8
+#Terminal=False
+#Type=Application
+#Categories=Categories=Application;Network;
+#EOF
+
+#su -c "cp \"/usr/share/applications/msie6.desktop\" \"$DESKTOP_DIR\" " $REAL_USER
+#su -c "mkdir -p \"$REAL_HOME/.wine/drive_c/windows/fonts/\" " $REAL_USER
+#su -c "mkdir -p \"$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/\" " $REAL_USER
+#su -c "ln -sf /usr/share/fonts/truetype/arphic/uming.ttf \"$REAL_HOME/.wine/drive_c/windows/fonts/uming.ttf\" " $REAL_USER
+#su -c "ln -sf /usr/share/fonts/truetype/arphic/uming.ttf \"$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/uming.ttf\" " $REAL_USER
+
+echo 'Internet Explorer 6.0 安裝完成!'
+
+cd "$TOP_DIR"

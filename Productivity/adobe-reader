@@ -1,0 +1,95 @@
+#!/bin/bash
+# Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>
+# Last Modified: 92 Dec 2008 by billy3321
+# Released under GNU General Public License
+# This script is used to install Adobe Reader 8.1.3 and add Chinese Traditional fonts support.
+# Source: http://www.ubuntu.org.tw/modules/newbb/viewtopic.php?topic_id=6067
+
+case "$ARCH_NAME" in
+i686)
+
+echo '正在下載 Adobe Reader 8.1.3 Linux 版...'
+mkdir -p temp/adobe-reader
+TOP_DIR=`pwd`
+
+cd temp/adobe-reader
+
+$WGET 'http://ardownload.adobe.com/pub/adobe/reader/unix/8.x/8.1.3/cht/AdobeReader_cht-8.1.3-1.i386.deb'
+$WGET 'http://ardownload.adobe.com/pub/adobe/reader/unix/8.x/8.1.2/misc/FontPack81_cht_i486-linux.tar.gz'
+
+# Remove English version if it's installed
+sudo apt-get --force-yes -y --purge remove adobereader-enu
+# Remove old config file, or Chinese interface cannot be used.
+rm -f "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/reader_prefs"
+
+echo '正在安裝 Adobe Reader 8.1.3...中文版'
+"$TOP_DIR/scripts/debinstall.py" *.deb
+
+echo '正在安裝 Adobe Reader 繁體中文字型支援...'
+tar -xzf FontPack81_cht_i486-linux.tar.gz
+cd CHTKIT
+
+# We don't call INSTALL provided by Adobe here.
+# Simply extracting the *.tar files is enough.
+FILES=`dir *.TAR`
+for file in $FILES
+do
+    tar --directory=/opt --no-same-owner -xpf "$file"
+done
+
+#解決libgtkembedmoz問題
+sudo -u "$REAL_USER" mkdir -p "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/"
+sudo -u "$REAL_USER" cat > "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/acrogre.conf" << EOF
+/usr/lib/firefox/
+EOF
+
+su -c "mkdir -p $REAL_HOME/.local/share/applications" "$REAL_USER"
+su -c "xdg-mime default AdobeReader.desktop application/pdf" "$REAL_USER"
+
+cd "$TOP_DIR"
+;;
+x86_64)
+#若os為ubuntu 64-bit
+#echo "抱歉，目前Adobe Reader官方版本並不支援ubuntu 64bit"
+#使用medibuntu中的套件
+. scripts/add-apt-sources
+add_medibuntu
+
+mkdir -p temp/adobe-reader
+TOP_DIR=`pwd`
+
+cd temp/adobe-reader
+
+$WGET 'http://ardownload.adobe.com/pub/adobe/reader/unix/8.x/8.1.2/misc/FontPack81_cht_i486-linux.tar.gz'
+
+apt-get --force-yes -y install non-free-codecs acroread
+
+echo '正在安裝 Adobe Reader 繁體中文字型支援...'
+tar -xzf FontPack81_cht_i486-linux.tar.gz
+cd CHTKIT
+
+# We don't call INSTALL provided by Adobe here.
+# Simply extracting the *.tar files is enough.
+FILES=`dir *.TAR`
+for file in $FILES
+do
+    tar --directory=/opt --no-same-owner -xpf "$file"
+done
+
+#解決libgtkembedmoz問題
+sudo -u "$REAL_USER" mkdir -p "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/"
+sudo -u "$REAL_USER" cat > "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/acrogre.conf" << EOF
+/usr/lib/firefox/
+EOF
+
+su -c "mkdir -p $REAL_HOME/.local/share/applications" "$REAL_USER"
+su -c "xdg-mime default AdobeReader.desktop application/pdf" "$REAL_USER"
+
+cd "$TOP_DIR"
+;;
+*)
+echo "抱歉，目前Lazybuntu尚未支援$ARCH_NAME硬體架構"
+#仍有其他硬體架構請添加於此
+;;
+esac

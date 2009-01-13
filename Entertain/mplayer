@@ -1,0 +1,18 @@
+#!/bin/sh
+# Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Modified by PCMan on 2007.10.07
+# Released under GNU General Public License
+
+apt-get install -y --force-yes mplayer
+mplayer_cfg_file="/etc/mplayer/mplayer.conf"
+
+# FIXME: This is not very good...
+sed -e 's/^subcp/# &/g' -i "$mplayer_cfg_file"
+sed -e 's/^subfont-text-scale/# &/g' -i "$mplayer_cfg_file"
+sed -e 's/^fontconfig/# &/g' -i  "$mplayer_cfg_file"
+sed -e 's/^font=/# &/g' -i "$mplayer_cfg_file"
+
+echo "subcp=cp950 #字型編碼" >> "$mplayer_cfg_file"
+echo "subfont-text-scale=3 #字型縮小一點" >> "$mplayer_cfg_file"
+echo "fontconfig=yes #開啟 fontconfig 支援" >> "$mplayer_cfg_file"
+echo "font='AR PL ZenKai Uni'" >> "$mplayer_cfg_file"

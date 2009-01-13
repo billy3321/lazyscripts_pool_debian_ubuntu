@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$DISTRIB_ID" == "Debian" ]; then
+    scripts/multimedia-repos
+fi
+
+apt-get  -y --force-yes install k9copy

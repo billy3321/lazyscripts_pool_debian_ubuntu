@@ -1,0 +1,17 @@
+#!/bin/sh
+
+apt-get -y --force-yes install audacious audacious-plugins-extra
+
+if [ -e "$REAL_HOME/.config/audacious/config" ]; then
+    sed -i -e "/chardet_detector/d" "$REAL_HOME/.config/audacious/config"
+    sed -i -e '/chardet_fallback/d' "$REAL_HOME/.config/audacious/config"
+    sed -i -e '/\[audacious\]/a\chardet_detector=Taiwanese' "$REAL_HOME/.config/audacious/config"
+    sed -i -e '/\[audacious\]/a\chardet_fallback=big5' "$REAL_HOME/.config/audacious/config"
+else
+    sudo -u $REAL_USER mkdir -p "$REAL_HOME/.config/audacious/"
+    sudo -u $REAL_USER cat > "$REAL_HOME/.config/audacious/config" << EOF 
+[audacious]
+chardet_detector=Taiwanese
+chardet_fallback=big5 
+EOF
+fi

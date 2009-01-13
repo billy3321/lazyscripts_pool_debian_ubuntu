@@ -1,0 +1,57 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>
+# Last Modified: 27 Dec 2008
+# Released under GNU General Public License
+# Replace /etc/apt/sources.list as mirror in Taiwan.
+# Please run as root.
+
+
+# backup original sources.list
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+# ubuntu 8.04 gksudo workaround
+#. temp/env-export.sh
+
+# 判斷sources.list中是否原本擁有medibuntu，ubuntu tweak或swiftfox之安裝來源
+HAS_MEDIBUNTU_SOURCE=`grep 'deb http://packages.medibuntu.org/' /etc/apt/sources.list.bak`
+HAS_UBUNTU_TWEAK_SOURCE=`grep 'deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list.bak`
+HAS_SWIFTFOX_SOURCE=`grep 'deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list.bak`
+HAS_WINEHQ_SOURCE=`grep 'deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list.bak`
+
+# replace apt sources with our own
+cat > '/etc/apt/sources.list' << EOF
+deb http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME main universe restricted multiverse #國網中心Ubuntu套件庫
+deb-src http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME main universe restricted multiverse #國網中心Ubuntu套件庫(源碼)
+
+deb http://security.ubuntu.com/ubuntu/ $DISTRIB_CODENAME-security universe main multiverse restricted #Ubuntu安全更新套件庫
+deb-src http://security.ubuntu.com/ubuntu/ $DISTRIB_CODENAME-security universe main multiverse restricted #Ubuntu安全更新套件庫(源碼)
+
+deb http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME-updates universe main multiverse restricted #國網中心Ubuntu升級用套件庫
+deb-src http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME-updates universe main multiverse restricted #國網中心Ubuntu升級用套件庫(源碼)
+EOF
+
+# 重新將medibuntu，ubuntu tweak或swiftfox之安裝來源加入
+if [ -n "$HAS_MEDIBUNTU_SOURCE" ]; then
+    echo -e "#the source of Medibuntu (Lazybuntu 新增)\ndeb http://packages.medibuntu.org/ $DISTRIB_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
+fi
+
+if [ -n "$HAS_UBUNTU_TWEAK_SOURCE" ]; then
+    if [ "$DISTRIB_CODENAME" = 'intrepid' ];then
+      echo -e "\n#the source of Ubuntu Tweak (Lazybuntu 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main" | sudo tee -a /etc/apt/sources.list
+    else
+      echo -e "\n#the source of Ubuntu Tweak (Lazybuntu 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu hardy main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main" | sudo tee -a /etc/apt/sources.list
+    fi
+fi
+
+if [ -n "$HAS_SWIFTFOX_SOURCE" ]; then
+  echo -e "\n#the source of swiftfox (Lazybuntu 新增)\ndeb http://getswiftfox.com/builds/debian unstable non-free" | sudo tee -a /etc/apt/sources.list
+fi
+
+if [ -n "$HAS_WINEHQ_SOURCE" ]; then
+  echo -e "#the source of WineHQ Apt (Lazybuntu 新增)\ndeb http://wine.budgetdedicated.com/apt $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
+fi
+
+
+

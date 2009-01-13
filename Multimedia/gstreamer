@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PACKAGES="gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad"
+
+if [ "$DISTRIB_ID" == "Ubuntu" ]; then
+    PACKAGES="$PACKAGES gstreamer0.10-plugins-ugly-multiverse gstreamer0.10-pitfdll gstreamer0.10-plugins-bad-multiverse"
+fi
+
+sudo apt-get install -y --force-yes $PACKAGES
+

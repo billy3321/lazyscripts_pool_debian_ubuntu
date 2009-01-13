@@ -1,0 +1,53 @@
+#!/bin/sh
+# Copyright: This file is taken from debian package of gcin which is GPL'd
+# Its original installed path is /usr/share/gcin/noseeing-inst
+# Modified by PCMan to be used in Lazybuntu
+# Modified by billy3321 at 9 Dec 2008 to use the lastest noseeing
+# http://edt1023.sayya.org/gcin/
+
+SAYYA=edt1023.sayya.org
+CLE=cle.linux.org.tw
+nosee=noseeing.tar.gz
+TOPDIR=`pwd`
+[ -d temp/noseeing ] || mkdir -p temp/noseeing
+cd temp/noseeing
+rm -f $nosee
+
+$WGET http://$SAYYA/gcin/$nosee > /dev/null 2>&1
+if [ $? != 0 ]; then
+  $WGET http://$CLE/~edt1023/gcin/$nosee > /dev/null 2>&1
+fi
+if [ ! -f $nosee ]; then
+  echo "file $nosee was not downloaded"
+  cd "$TOPDIR"
+  exit 1
+fi
+
+tar xvfz $nosee
+if [ $? != 0 ]; then
+  echo "tar error, maybe the file $nosee is not complete"
+  cd "$TOPDIR"
+  exit 1
+fi
+id=`id -u`
+if [ $id = 0 ]; then
+  echo "root user, install to system"
+  for i in /usr/share/gcin/table /usr/local/share/gcin/table
+  do  
+    [ -d $i ] && cp -p noseeing.gtab $i && echo "  install to $i"
+  done
+  for i in /usr/share/gcin/scripts /usr/local/share/gcin/scripts
+  do  
+    [ -d $i ] && install -m 0755 noseeadd.rb $i && echo "  install to $i"
+  done
+else
+  mv noseeing.gtab ~/.gcin
+  install -m 0755 noseeadd.rb ~/.gcin
+fi
+echo "無蝦米安裝完成！"                                 
+
+cd "$TOPDIR"
+
+
+
+

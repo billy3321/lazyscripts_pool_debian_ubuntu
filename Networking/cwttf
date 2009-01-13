@@ -1,0 +1,13 @@
+#!/bin/sh
+echo '正在下載 cwttf 中文字型'
+BASE_URL="http://cle.linux.org.tw/fonts/cwttf/deb"
+mkdir -p ./temp/cwttf
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwfs_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwheib_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwkai_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwming_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwyen_1.0-1_all.deb"
+
+echo '正在安裝 cwttf 中文字型'
+dpkg -i temp/cwttf/*.deb
+

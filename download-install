@@ -1,0 +1,6 @@
+#!/bin/sh
+TMP_DIR="temp/$1"
+mkdir -p "$TMP_DIR"
+echo "$TMP_DIR"
+$WGET -P "$TMP_DIR" "$2"
+scripts/debinstall.py "$TMP_DIR"/*.deb

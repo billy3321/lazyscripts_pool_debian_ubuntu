@@ -1,0 +1,35 @@
+#!/bin/sh
+# Source: http://www.gnome-look.org/content/show.php/nuoveXT+2?content=56625
+
+echo '正在下載並安裝 nuoveXT 2 圖示佈景主題...'
+mkdir -p temp/nuovext
+TOP_DIR=`pwd`
+cd temp/nuovext
+
+# Gnome
+$WGET 'http://nuovext.pwsp.net/files/nuoveXT.2.2.tar.bz2'
+# KDE
+$WGET 'http://nuovext.pwsp.net/files/nuoveXT-2.2_KDE.tar.gz'
+
+FILES=`dir *.tar.gz`
+for theme in $FILES
+    do
+        tar -xzf "$theme" --directory='/usr/share/icons'
+    done
+
+FILES=`dir *.tar.bz2`
+for theme in $FILES
+    do
+        tar -xjf "$theme" --directory='/usr/share/icons'
+    done
+
+# Firefox
+# $WGET 'http://gnome-look.org/content/download.php?content=61516&id=1'
+# FIXME: there should be better way to do this
+# firefox -install-global-theme *.jar
+
+
+echo '設定 Gnome 桌面使用 NeuvoXT 圖示...'
+sudo -u $REAL_USER gconftool-2 -t string -s /desktop/gnome/interface/icon_theme 'nuoveXT.2.2'
+
+cd "$TOP_DIR"

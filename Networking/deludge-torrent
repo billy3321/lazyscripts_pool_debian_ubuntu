@@ -1,0 +1,15 @@
+#!/bin/bash
+
+TOP_DIR=`pwd`
+
+if [ $DISTRIB_CODENAME == "feisty" ]; then
+    subvernum="1"
+else
+    subvernum="2"
+fi
+
+if [ $DISTRIB_CODENAME != "hardy" ]; then
+    $TOP_DIR/scripts/download-install deluge "http://download.deluge-torrent.org/index.php?dir=ubuntu/${DISTRIB_CODENAME}/0.5.5/&file=deluge-torrent_0.5.5-${subvernum}_i386.deb"
+else
+    apt-get -y --force-yes install deluge-torrent
+fi

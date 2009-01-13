@@ -1,0 +1,26 @@
+#!/bin/sh
+# Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Copyright (C) 2007 洪任諭 (PCMan) <pcman.tw@gmail.com>
+# Released under GNU General Public License
+
+download_url_prefix='http://nchc.dl.sourceforge.net/sourceforge/stardict/'
+temp_dir='temp/stardict/'
+dic_dir='/usr/share/stardict/dic/'
+
+mkdir -p "$temp_dir"
+apt-get --force-yes -y install stardict
+
+dict_list=" \
+    stardict-cdict-big5-2.4.2.tar.bz2 \
+    stardict-oxford-big5-2.4.2.tar.bz2 \
+    stardict-xdict-ec-big5-2.4.2.tar.bz2 \
+    stardict-xdict-ce-big5-2.4.2.tar.bz2 \
+    stardict-cedict-big5-2.4.2.tar.bz2 \
+    stardict-langdao-ec-big5-2.4.2.tar.bz2 \
+    stardict-langdao-ce-big5-2.4.2.tar.bz2"
+
+for d in $dict_list
+do
+    $WGET --output-document="$temp_dir$d" "$download_url_prefix$d"
+    tar jxf "$temp_dir$d" --directory="$dic_dir"
+done

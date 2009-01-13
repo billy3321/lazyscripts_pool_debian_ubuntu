@@ -1,0 +1,9 @@
+#!/bin/sh
+# Fix some permission-related error of unknown cause (Bug: #31830)
+
+# List all filenames started with '.'
+FILES_TO_FIX=`find $REAL_HOME -maxdepth 1 -name ".*"`
+
+# Change owner to $REAL_USER
+chown -R $REAL_USER: $FILES_TO_FIX
+

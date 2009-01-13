@@ -1,0 +1,31 @@
+#!/bin/bash
+# Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Add Medibuntu source through scripts/add_repos.py
+# Released under GNU General Public License
+
+
+if [ "$DISTRIB_ID" == "Debian" ]; then
+    uri="http://ftp.tw.debian.org/debian-multimedia/"
+    comps="main"
+    extra_packages=""
+elif [ "$DISTRIB_ID" == "Ubuntu" ]; then
+    uri="http://packages.medibuntu.org/"
+    comps="free non-free"
+    extra_packages="non-free-codecs"
+fi
+
+scripts/add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
+
+apt-get update
+
+case "$ARCH_NAME" in
+i686)
+    apt-get -y --force-yes install w32codecs $extra_packages
+;;
+x86_64)
+    apt-get -y --force-yes install w64codecs $extra_packages
+;;
+*)
+    echo "抱歉，Lazybuntu目前不支援 $ARCH_NAME 硬體架構。"
+;;
+esac
