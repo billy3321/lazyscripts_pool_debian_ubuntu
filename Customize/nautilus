@@ -1,4 +1,17 @@
 #!/bin/bash
+# @name_enUS '' 
+# @name_zhTW '安裝幾個好用的 Nautilus(檔案管理程式)外掛'
+# @desc_enUS ''
+# @desc_zhTW 'nautilus-gksu：以系統管理員權限開啟目錄 
+#             nautilus-open-terminal：在目前目錄下開啟終端機視窗 
+#             nautilus-script-audio-convert：音樂轉檔外掛 
+#             nautilus-image-converter：圖片轉檔外掛'
+# @category 'Customize'
+# @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
+# @author '洪任諭(PCMan) <pcman.tw -AT- gmail.com>'
+# @license 'GPL'
+# @ubuntu
+# @platform 'i386 amd64'
 
 PACKAGES="nautilus-gksu nautilus-open-terminal nautilus-image-converter"
 
