@@ -6,6 +6,20 @@
 # Last Midified : 19 Dec 2008
 # Install and config input method for one or more users.
 # Released under GNU General Public License
+# @name_enUS '' 
+# @name_zhTW '安裝/設定 繁體中文輸入法'
+# @desc_enUS ''
+# @desc_zhTW '讓你安裝你想要的中文輸入法，有 scim, gcin 可選擇。令也支援在gcin中添加無蝦米輸入法。'
+# @category 'Localization'
+# @maintaner '2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
+# @author '2007 洪任諭(PCMan) <pcman.tw -AT- gmail.com>'
+# @author '2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>'
+# @license 'GPL'
+# @debian 
+# @ubuntu 
+# @platform 'i386 amd64'
+# @child 'noseeing'
+
 
 import os
 from string import Template
