@@ -6,6 +6,18 @@
 # Download and install skype for i686 and x86_64 ubuntu
 # Please run as root.
 # http://ubuntuforums.org/showthread.php?t=432295
+# @name_enUS '' 
+# @name_zhTW '安裝 Skype 網路電話 2.0'
+# @desc_enUS ''
+# @desc_zhTW 'Skype 網路電話官方發行的 Linux 版本，這是 2.0 正式版，具有許多令人興奮的新功能。
+#             注意：AMD64版本在安裝後仍需手動設定聲音輸出才可正常使用。'
+# @category 'Networking'
+# @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
+# @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @ubuntu ''
+# @platform 'i386 AMD64'
 
 echo "下載並安裝skype網路電話..."
 

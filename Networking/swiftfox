@@ -6,6 +6,18 @@
 # Released under GNU General Public License
 # Download and install swiftfox.
 # Please run as root.
+# @name_enUS '' 
+# @name_zhTW '安裝 SwiftFox - 非官方最佳化版的 Firefox'
+# @desc_enUS ''
+# @desc_zhTW '針對各種不同 CPU 最佳化編譯的 Firefox，效能勝過 Firefox 官方版本'
+# @category 'Networking'
+# @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
+# @author '洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @ubuntu ''
+# @platform 'i386 AMD64'
+# @child 'cpu-type.py'
 
 . scripts/add-apt-sources
 
