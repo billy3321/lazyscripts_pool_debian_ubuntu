@@ -1,4 +1,18 @@
 #!/bin/bash
+# @name_enUS '' 
+# @name_zhTW '安裝 K9Copy'
+# @desc_enUS ''
+# @desc_zhTW '超好用的強大影音 DVD 拷貝工具，相當於 Windows 下的 DVDShrink
+#             可以把 9 GB 的 DVD 壓縮後燒錄進 4.7 GB 的空片，並保存原 DVD 選單。經過壓縮的DVD，畫質比起原母片，只有非常細微的減損。
+#             除此之外，K9Copy 也內建製作 DVD Rip 轉成 avi 的功能，可以說是目前 Linux 下最好的 DVD 備份方案。'
+# @category 'Multimedia'
+# @maintane '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
+# @author '洪任諭(PCMan) <pcman.tw -AT- gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @ubuntu ''
+# @platform 'i386 AMD64'
+
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
     scripts/multimedia-repos
