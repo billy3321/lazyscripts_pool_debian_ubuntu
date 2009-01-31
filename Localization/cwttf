@@ -1,0 +1,27 @@
+#!/bin/sh
+# @name_enUS '' 
+# @name_zhTW '安裝 cwTTF 高品質中文字型'
+# @desc_enUS ''
+# @desc_zhTW 'cwTTF 原先是 cwTex 排版系統裡面使用的一套中文字型，
+#             包含圓體、宋體、粗黑體等五種相當美觀的中文字型，經原作者授權，
+#             由 EdwardLee 前輩轉成 ttf 格式以 GPL 授權釋出，推薦安裝。'
+# @category 'Localization'
+# @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
+# @author '洪任諭(PCMan) <pcman.tw -AT- gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @ubuntu ''
+# @platform 'i386 AMD64'
+
+echo '正在下載 cwttf 中文字型'
+BASE_URL="http://cle.linux.org.tw/fonts/cwttf/deb"
+mkdir -p ./temp/cwttf
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwfs_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwheib_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwkai_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwming_1.0-1_all.deb"
+$WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwyen_1.0-1_all.deb"
+
+echo '正在安裝 cwttf 中文字型'
+dpkg -i temp/cwttf/*.deb
+
