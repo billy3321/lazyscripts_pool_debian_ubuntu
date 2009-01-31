@@ -18,7 +18,7 @@
 # @license 'GPL'
 # @debian ''
 # @ubuntu ''
-# @platform 'i386 AMD64'
+# @platform 'i386'
 
 
 case "$ARCH_NAME" in

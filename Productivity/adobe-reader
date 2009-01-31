@@ -5,6 +5,19 @@
 # Released under GNU General Public License
 # This script is used to install Adobe Reader 8.1.3 and add Chinese Traditional fonts support.
 # Source: http://www.ubuntu.org.tw/modules/newbb/viewtopic.php?topic_id=6067
+# @name_enUS '' 
+# @name_zhTW '安裝 Adobe Reader 8'
+# @desc_enUS ''
+# @desc_zhTW 'Adobe 官方提供的 Linux 版 PDF 閱讀程式
+#             注意:AMD64硬體架構將安裝medibuntu之Adobe Reader而非官方發行版本。'
+# @category 'Productivity'
+# @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
+# @author '洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @ubuntu ''
+# @platform 'i386 AMD64'
+
 
 case "$ARCH_NAME" in
 i686)
