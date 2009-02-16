@@ -25,6 +25,13 @@ done
 }
 
 
+function choice_branch(){
+read -p "Enter the branch you want to merge or push enter to merge to master:" BRANCH
+if [ -z $BRANCH ];then
+  BRANCH="master"
+fi
+}
+
 echo "Whos repo you want to sync?"
 echo "1. hychen"
 echo "2. billy3321"
@@ -32,10 +39,12 @@ echo "Please enter your choice:"
 read -p "What do you want to do now? Please enter the number:" ACT
   case $ACT in
    "1")
-   git pull git://github.com/hychen/lazyscript_pool.git && push_repo
+   choice_branch
+   git pull git://github.com/hychen/lazyscript_pool.git $BRANCH && push_repo
    ;;
    "2")
-   git pull git://github.com/billy3321/lazyscript_pool.git && push_repo
+   choice_branch
+   git pull git://github.com/billy3321/lazyscript_pool.git $BRANCH && push_repo
    ;;
    *)
    echo "Please enter a number."
