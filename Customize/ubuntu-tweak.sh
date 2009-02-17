@@ -5,6 +5,7 @@
 # Released under GNU General Public License
 # Add ubuntu tweak source into source.list and install ubuntu tweak from apt
 # Please run as root.
+#
 # @name_enUS 'Install Ubuntu-Tweak'
 # @name_zhTW '安裝Ubuntu Tweak校調工具'
 # @desc_enUS 'Ubuntu Tweak is a config tool for ubuntu and good for use.'

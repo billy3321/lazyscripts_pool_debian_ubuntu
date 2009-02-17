@@ -1,4 +1,6 @@
 #!/bin/bash
+# -*- coding: utf-8 -*-
+#
 # @name_enUS '' 
 # @name_zhTW '安裝幾個好用的 Nautilus(檔案管理程式)外掛'
 # @desc_enUS ''

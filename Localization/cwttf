@@ -1,4 +1,6 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
+#
 # @name_enUS '' 
 # @name_zhTW '安裝 cwTTF 高品質中文字型'
 # @desc_enUS ''

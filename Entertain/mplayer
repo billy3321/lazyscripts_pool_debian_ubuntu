@@ -1,7 +1,9 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
 # Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Modified by PCMan on 2007.10.07
 # Released under GNU General Public License
+#
 # @name_enUS '' 
 # @name_zhTW '安裝 Mplayer 媒體播放程式'
 # @desc_enUS ''

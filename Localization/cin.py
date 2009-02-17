@@ -6,6 +6,7 @@
 # Last Midified : 19 Dec 2008
 # Install and config input method for one or more users.
 # Released under GNU General Public License
+#
 # @name_enUS '' 
 # @name_zhTW '安裝/設定 繁體中文輸入法'
 # @desc_enUS ''

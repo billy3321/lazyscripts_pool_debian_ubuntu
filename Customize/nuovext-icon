@@ -1,5 +1,7 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
 # Source: http://www.gnome-look.org/content/show.php/nuoveXT+2?content=56625
+#
 # @name_enUS 'Install nuoveXT Desktop Theme' 
 # @name_zhTW '安裝 nuoveXT 圖示佈景主題'
 # @desc_enUS ''

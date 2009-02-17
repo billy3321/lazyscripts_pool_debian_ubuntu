@@ -1,9 +1,11 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
 # Copyright: This file is taken from debian package of gcin which is GPL'd
 # Its original installed path is /usr/share/gcin/noseeing-inst
 # Modified by PCMan to be used in Lazybuntu
 # Modified by billy3321 at 9 Dec 2008 to use the lastest noseeing
 # http://edt1023.sayya.org/gcin/
+#
 # @parent cin.py
 
 SAYYA=edt1023.sayya.org

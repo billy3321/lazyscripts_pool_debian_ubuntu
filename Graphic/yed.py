@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding=utf8 -*-
+#
 # @name_zhTW '安裝yEd流程圖軟體'
 # @desc_zhTW 'Java 寫的流程圖軟體'
 # @author '2009 Hsin Yi Chen 陳信屹 (hychen) <ossug.hychen at gmail.com>

@@ -5,6 +5,7 @@
 # Released under GNU General Public License
 # Download and install madedit for i686 and x86_64 ubuntu
 # Please run as root.
+#
 # @name_enUS '' 
 # @name_zhTW '安裝 MadEdit - 支援 16 進位編輯、中文轉碼的超強國產編輯器'
 # @desc_enUS ''

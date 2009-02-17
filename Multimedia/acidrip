@@ -1,4 +1,6 @@
 #!/bin/bash
+# -*- coding: utf-8 -*-
+#
 # @name_enUS 'Install AcidRip'
 # @name_zhTW '安裝 AcidRip'
 # @desc_enUS ''

@@ -1,5 +1,7 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
 # Fix some permission-related error of unknown cause (Bug: #31830)
+#
 # @name_enUS '' 
 # @name_zhTW '修復權限問題'
 # @desc_enUS ''

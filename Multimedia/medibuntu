@@ -6,12 +6,13 @@
 # Released under GNU General Public License
 # Download and install w32codecs or w64codecs for i686 and x86_64 ubuntu
 # Please run as root.
+#
 # @name_enUS '' 
 # @name_zhTW '加入 Medibuntu 套件庫並安裝 Win32 Codecs'
 # @desc_enUS ''
 # @desc_zhTW 'Ubuntu 官方因為某些法規及專利問題，沒有支援許多常用的影音格式。
-#             於是有人成立非官方的 Medibuntu 套件庫，提供多種影音 Codecs，一般使用者幾乎都會需要用到這個非官方套件庫，建議考慮安裝。
-#             請注意：因為各地專利及著作權法規的不同，此套件庫內的套件並非全部都保證可以合法使用，請使用者自行斟酌。'
+#             於是有人成立非官方的 Medibuntu 套件庫，提供多種影音 Codecs，一般使用者幾乎都會需要用到這個非官方套件庫，建議考慮安裝。'
+# @warn_zhTW '因為各地專利及著作權法規的不同，此套件庫內的套件並非全部都保證可以合法使用，請使用者自行斟酌。'
 # @category 'Multimedia'
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @author '洪任諭(PCMan) <pcman.tw -AT- gmail.com>'

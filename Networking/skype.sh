@@ -6,6 +6,7 @@
 # Download and install skype for i686 and x86_64 ubuntu
 # Please run as root.
 # http://ubuntuforums.org/showthread.php?t=432295
+#
 # @name_enUS '' 
 # @name_zhTW '安裝 Skype 網路電話 2.0'
 # @desc_enUS ''

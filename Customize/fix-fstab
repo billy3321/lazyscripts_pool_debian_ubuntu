@@ -1,4 +1,6 @@
 #!/bin/sh
+# -*- coding: utf-8 -*-
+#
 # @name_enUS '' 
 # @name_zhTW '修正FAT32磁碟分割設定'
 # @desc_enUS ''
