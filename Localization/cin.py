@@ -19,7 +19,7 @@
 # @debian 
 # @ubuntu 
 # @platform 'i386 amd64'
-# @child 'noseeing'
+# @child 'noseeing-inst'
 
 
 import os
