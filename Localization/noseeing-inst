@@ -7,6 +7,7 @@
 # http://edt1023.sayya.org/gcin/
 #
 # @parent cin.py
+# @hide
 
 SAYYA=edt1023.sayya.org
 CLE=cle.linux.org.tw
