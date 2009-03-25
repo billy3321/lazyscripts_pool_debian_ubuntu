@@ -13,6 +13,7 @@
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @license 'GPL'
 # @parent 'ie6'
+# @hide
 
 CORRECT_DESKTOP_DIR="/home/${1}/桌面"
 CORRECT_HOME="/home/${1}"

@@ -10,6 +10,7 @@
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @license 'GPL'
 # @parent 'ie6'
+# @hide
 
 import os
 import pygtk
