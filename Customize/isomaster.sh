@@ -16,5 +16,5 @@
 # @debian
 # @platform 'i386 amd64'
 
-apt-get install isomaster
+apt-get -y --force-yes install isomaster
 
