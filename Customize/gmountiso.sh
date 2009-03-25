@@ -19,4 +19,7 @@
 
 echo `pwd`
 #apt-get -y --force-yes install gmountiso
+. scriptspoll/464df77ba280ba7a885291be2653b7da/repo/echo
+
+echo $TEST_MSG
 
