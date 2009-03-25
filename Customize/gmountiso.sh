@@ -17,5 +17,6 @@
 # @debian
 # @platform 'i386 amd64'
 
-apt-get -y --force-yes install gmountiso
+echo `pwd`
+#apt-get -y --force-yes install gmountiso
 
