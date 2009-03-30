@@ -1,5 +1,6 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
+# Last modified: 30 Mar 2009
 #
 # @name_enUS 'Install AcidRip'
 # @name_zhTW '安裝 AcidRip'
@@ -13,9 +14,11 @@
 # @debian 
 # @ubuntu 
 # @platform 'i386 amd64'
+# @child 'Multimedia/multimedia-repos'
+# @child 'Common/add_repos.py'
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
-    scripts/multimedia-repos
+    ./multimedia-repos
 fi
 
 apt-get  -y --force-yes install acidrip

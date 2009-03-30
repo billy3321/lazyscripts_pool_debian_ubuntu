@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2007 洪任諭(PCMan) <pcman.tw -AT- gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>
-# Last Modified: 2 Dec 2008
+# Last Modified: 30 Mrc 2009
 # Released under GNU General Public License
 # Please run as root.
 #
@@ -18,6 +18,7 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
+# @child 'Common/getdeb.py'
 
-scripts/getdeb.py AssaultCube 1633
+./getdeb.py AssaultCube 1633
 

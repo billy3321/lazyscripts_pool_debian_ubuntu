@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
-# Last Midified : 27 Dec 2008
+# Last Midified : 30 Mar 2009
 # Install Microsoft Internet Explorer for one or more users.
 # Released under GNU General Public License
 #
@@ -9,7 +9,7 @@
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @license 'GPL'
-# @parent 'ie6'
+# @parent 'Networking/ie6'
 # @hide
 
 import os

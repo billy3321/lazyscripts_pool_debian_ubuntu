@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 # Copyright (C) 2008 陳信屹 Hsin Yi Chen (hychen) <ossug.hychen@gmail.com>
-# Last Modified: 19 Dec 2008
+# Last Modified: 30 Mar 2009
 #
 # Download and install dpgconverter. dpgconvert is a video formate
 # converter, whith do converting the video formate to DPG, which
@@ -44,14 +44,14 @@ TOP_DIR=`pwd`
 cd temp/dpgconv
 
 echo "正在安裝mpeg_stat..."
-wget $mpeg_state_dl_url
+$WGET $mpeg_state_dl_url
 tar xzvf $mpeg_stat_tgz
 cd mpeg_stat
 make
 sudo cp mpeg_stat /usr/bin/mpeg_stat
 sudo cp mpeg_stat.1 /usr/bin/mpeg_stat.1
 echo "正在安裝dpgconv 8..."
-wget $gpgconv_dl_url
+$WGET $gpgconv_dl_url
 chmod 755 $dpgconv_file
 sudo cp $dpgconv_file /usr/bin/$dpgconv_file
 

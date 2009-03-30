@@ -16,7 +16,7 @@
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @author '洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>'
 # @license 'GPL'
-# @parent 'swiftfox'
+# @parent 'Networking/swiftfox'
 # @hide
 
 import sys, os, re

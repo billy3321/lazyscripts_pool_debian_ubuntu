@@ -7,6 +7,8 @@
 #getdeb.py [NAME] [RELEASE ID]
 #[NAME] is the name of the package.  [RELEASE ID] is a id it used on getdeb.net
 
+# @child 'Common/debinstall.py'
+
 import sys, os, re, urllib
 
 if len(sys.argv) < 3:
@@ -36,4 +38,4 @@ if f:
         os.system("wget -c --directory-prefix=%s '%s'" % (tmpdir, pkg_url) )
 
     print "正在安裝套件 %s..." % name
-    os.system( "scripts/debinstall.py %s/*.deb" % tmpdir )
+    os.system( "./debinstall.py %s/*.deb" % tmpdir )

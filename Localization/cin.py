@@ -3,7 +3,7 @@
 # Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Copyright (C) 2007 洪任諭(PCMan) <pcman.tw -AT- gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
-# Last Midified : 19 Dec 2008
+# Last Midified : 30 Mar 2009
 # Install and config input method for one or more users.
 # Released under GNU General Public License
 #
@@ -140,3 +140,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

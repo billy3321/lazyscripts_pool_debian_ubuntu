@@ -57,3 +57,4 @@ if not os.path.isfile(path):
 
 print 'run installer'
 os.system('bash '+path)
+

@@ -16,6 +16,7 @@
 # @platform 'i386 AMD64'
 
 echo '正在下載 cwttf 中文字型'
+
 BASE_URL="http://cle.linux.org.tw/fonts/cwttf/deb"
 mkdir -p ./temp/cwttf
 $WGET -P temp/cwttf "$BASE_URL/ttf-cwtex-center-cwfs_1.0-1_all.deb"

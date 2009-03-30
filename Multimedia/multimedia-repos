@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 # Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
-# Add Medibuntu source through scripts/add_repos.py
+# Add Medibuntu source through Common/add_repos.py
 # Released under GNU General Public License
 # @name_enUS '' 
 # @name_zhTW '加入 Medibuntu 套件庫並安裝 Win32 Codecs'
@@ -32,7 +32,7 @@ fi
 
 apt-get update
 
-case "$ARCH_NAME" in
+case "$PLAT_NAME" in
 i686)
     apt-get -y --force-yes install w32codecs $extra_packages
 ;;
@@ -40,6 +40,6 @@ x86_64)
     apt-get -y --force-yes install w64codecs $extra_packages
 ;;
 *)
-    echo "抱歉，Lazybuntu目前不支援 $ARCH_NAME 硬體架構。"
+    echo "抱歉，Lazybuntu目前不支援 $PLAT_NAME 硬體架構。"
 ;;
 esac

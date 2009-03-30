@@ -4,7 +4,7 @@
 # Copyright (C) 2008 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
 # Config desktop icon and some setting after ie6 installation.
-# Last Modified: 29 Dec 2008
+# Last Modified: 30 Mar 2009
 #
 # @category 'Networking'
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
@@ -12,7 +12,7 @@
 # @author '朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>'
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @license 'GPL'
-# @parent 'ie6'
+# @parent 'Networking/ie6'
 # @hide
 
 CORRECT_DESKTOP_DIR="/home/${1}/桌面"

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>
-# Last Modified: 29 Dec 2008
+# Last Modified: 30 Mar 2009
 # Released under GNU General Public License
 # Download and install realplayer for i686 and x86_64 ubuntu
 # Please run as root.
@@ -19,15 +19,16 @@
 # @license 'GPL'
 # @ubuntu 
 # @platform 'i386 amd64'
+# @child 'Common/download-install Common/debinstall.py'
 
 
-case "$ARCH_NAME" in
+case "$PLAT_NAME" in
 i686)
 echo '移除系統上原本的 Real Player 套件...'
 apt-get --force-yes -y remove --purge realplay
 
 echo '下載並安裝 Real Player 11...'
-scripts/download-install realplay 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.deb'
+./download-install realplay 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.deb'
 ;;
 x86_64)
 #FIXME:use
@@ -41,7 +42,7 @@ mkdir -p temp/realplay
 TOP_DIR=`pwd`
 cd temp/realplay
 echo '下載並安裝 Real Player 11...'
-wget 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin'
+$WGET 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin'
 chmod a+x RealPlayer11GOLD.bin
 echo -e "\n\n\n" > real_echo
 echo `pwd`
@@ -50,6 +51,6 @@ echo `pwd`
 cd "$TOP_DIR"
 ;;
 *)
-echo "Real Player 目前尚未支援 $ARCH_NAME 硬體架構，取消安裝。"
+echo "Real Player 目前尚未支援 $PLAT_NAME 硬體架構，取消安裝。"
 ;;
 esac

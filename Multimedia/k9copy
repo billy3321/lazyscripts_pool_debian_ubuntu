@@ -14,10 +14,10 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
-
+# @child 'Common/add_repos.py Multimedia/multimedia-repos'
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
-    scripts/multimedia-repos
+    ./multimedia-repos
 fi
 
 apt-get  -y --force-yes install k9copy
