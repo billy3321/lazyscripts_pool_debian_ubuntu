@@ -16,10 +16,11 @@
 # @license 'GPL'
 # @ubuntu 
 # @platform 'i386 amd64'
+# @child 'Common/add-apt-sources'
 
 
 #Check if source.list has source of ubuntu tweak
-. scripts/add-apt-sources
+. add-apt-sources
 
 add_ubuntu_tweak
 

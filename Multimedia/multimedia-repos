@@ -16,7 +16,7 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
-
+# @child 'Common/add_repos.py'
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
     uri="http://ftp.tw.debian.org/debian-multimedia/"
@@ -28,7 +28,7 @@ elif [ "$DISTRIB_ID" == "Ubuntu" ]; then
     extra_packages="non-free-codecs"
 fi
 
-scripts/add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
+./add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
 
 apt-get update
 

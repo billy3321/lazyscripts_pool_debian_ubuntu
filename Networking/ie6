@@ -25,7 +25,7 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
-# @child 'ie6_seluser.py ie6_after.sh'
+# @child 'Common/add-apt-sources Networking/ie6_seluser.py Networking/ie6_after.sh'
 
 echo '開始安裝 Microsoft Internet Explorer 6.0 中文版...'
 
@@ -33,7 +33,7 @@ export TOP_DIR=`pwd`
 export TMP_DIR='temp/ie6'
 
 # install cabextract and tool used to extract ie icon
-. scripts/add-apt-sources
+. add-apt-sources
 add_winehq
 apt-get -y --force-yes install wine icoutils cabextract unzip
 mkdir -p "$TMP_DIR"
@@ -51,7 +51,7 @@ echo '執行 IE 安裝工具： ies4linux'
 export IE4LINUX_DIR=`pwd`
 
 cd $TOP_DIR
-scripts/ie6_seluser.py $IE4LINUX_DIR
+ie6_seluser.py $IE4LINUX_DIR
 
 #while [ ! -h "/home/$REAL_USER/bin/ie6" ]
 #do

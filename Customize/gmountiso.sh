@@ -16,10 +16,11 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
+# @child 'Common/echo1'
 
 echo `pwd`
 #apt-get -y --force-yes install gmountiso
-. scriptspoll/464df77ba280ba7a885291be2653b7da/repo/echo
+. echo1
 
 echo $TEST_MSG
 

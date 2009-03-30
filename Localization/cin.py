@@ -19,7 +19,7 @@
 # @debian 
 # @ubuntu 
 # @platform 'i386 amd64'
-# @child 'noseeing-inst'
+# @child 'Localization/noseeing-inst'
 
 
 import os
@@ -39,7 +39,7 @@ def noseeing_yes_no():
     ret = dlg.run ()
     dlg.destroy ()
     if ret == gtk.RESPONSE_YES:
-     os.system( 'scripts/noseeing-inst' )
+     os.system( 'noseeing-inst' )
 
 def sel_users(selected_cin):
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
@@ -130,7 +130,7 @@ def main():
             os.system(apt_cmd +'gcin-qt3-immodule' )
             # install noseeing
             # FIXME: 使用者應該可以選擇不要安裝無蝦米
-            #os.system( 'scripts/noseeing-inst' )
+            #os.system( 'noseeing-inst' )
             noseeing_yes_no()
 
         user_scope(selected_cin)

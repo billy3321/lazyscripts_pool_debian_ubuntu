@@ -19,16 +19,17 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
+# @child 'Multimedia/multimedia-repos Common/add_repos.py'
 
 echo "下載並安裝skype網路電話..."
 
-case "$ARCH_NAME" in
+case "$PLAT_NAME" in
 i686)
 scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'
 ;;
 x86_64)
 
-scripts/multimedia-repos
+./multimedia-repos
 
 # 將以下網址之內容執行於下
 # http://ubuntuforums.org/showthread.php?t=432295
@@ -54,12 +55,12 @@ scripts/multimedia-repos
 
  ;;
  *)
- echo "抱歉，$ARCH_NAME硬體架構版本之skype不支援ubuntu $DISTRIB_NAME。"
+ echo "抱歉，$PLAT_NAME硬體架構版本之skype不支援ubuntu $DISTRIB_NAME。"
  ;;
  esac
 ;;
 *)
-echo "抱歉，Lazybuntu目前尚未支援 $ARCH_NAME 硬體架構。"
+echo "抱歉，Lazybuntu目前尚未支援 $PLAT_NAME 硬體架構。"
 # 若仍有其他硬體架構請加於此
 ;;
 esac

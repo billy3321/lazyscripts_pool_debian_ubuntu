@@ -18,9 +18,9 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
-# @child 'cpu-type.py'
+# @child 'Common/add-apt-sources Common/cpu-type.py'
 
-. scripts/add-apt-sources
+. add-apt-sources
 
 add_swiftfox
 

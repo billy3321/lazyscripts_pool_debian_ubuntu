@@ -20,9 +20,9 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
+# @child 'Common/add-apt-sources'
 
-
-. scripts/add-apt-sources
+. add-apt-sources
 
 add_medibuntu
 
