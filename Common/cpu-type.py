@@ -16,6 +16,7 @@
 # @author '洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>'
 # @license 'GPL'
 # @parent 'Networking/swiftfox'
+# @hide
 
 import sys, os, re
 
