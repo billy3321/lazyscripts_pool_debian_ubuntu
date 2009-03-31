@@ -6,6 +6,8 @@
 # Add source into source.list through arguments.
 # Released under GNU General Public License
 
+# @hide
+
 import aptsources
 from aptsources.sourceslist import SourcesList
 import aptsources.distro

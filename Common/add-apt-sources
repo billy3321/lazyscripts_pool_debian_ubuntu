@@ -6,6 +6,8 @@
 # Declare 2 functions for adding medibuntu and ubuntu tweak source
 # Please run as root.
 
+# @hide
+
 
 function add_medibuntu() {
 HAS_MEDIBUNTU=`grep 'deb http://packages.medibuntu.org/' /etc/apt/sources.list`

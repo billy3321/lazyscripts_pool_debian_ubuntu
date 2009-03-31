@@ -6,6 +6,8 @@
 # install deb files and automatically install all required dependencies from apt
 # usage: debinstall.py [FILES]
 
+# @hide
+
 import os, sys, re
 
 class Package:

@@ -12,7 +12,6 @@
 # http://www.sandpile.org/ia32/cpuid.htm
 # http://download.intel.com/design/processor/applnots/24161831.pdf
 
-# @category 'Networking'
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @author '洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>'
 # @license 'GPL'

@@ -8,6 +8,7 @@
 #[NAME] is the name of the package.  [RELEASE ID] is a id it used on getdeb.net
 
 # @child 'Common/debinstall.py'
+# @hide
 
 import sys, os, re, urllib
 
