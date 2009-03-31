@@ -1,4 +1,4 @@
-#!/usr/bin/env pythource in sourceslist:
+#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>
