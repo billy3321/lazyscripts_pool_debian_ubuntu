@@ -39,7 +39,7 @@ def noseeing_yes_no():
     ret = dlg.run ()
     dlg.destroy ()
     if ret == gtk.RESPONSE_YES:
-     os.system( 'noseeing-inst' )
+     os.system( './noseeing-inst' )
 
 def sel_users(selected_cin):
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
