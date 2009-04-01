@@ -52,7 +52,7 @@ echo '執行 IE 安裝工具： ies4linux'
 export IE4LINUX_DIR=`pwd`
 
 cd $TOP_DIR
-ie6_seluser.py $IE4LINUX_DIR
+./ie6_seluser.py $IE4LINUX_DIR
 
 #while [ ! -h "/home/$REAL_USER/bin/ie6" ]
 #do
