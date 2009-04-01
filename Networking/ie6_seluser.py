@@ -26,11 +26,11 @@ def ie4linux_cmd(user_name):
     try_times = 0
     while try_times < 5:
      if os.path.exists(ie6_path):
-      after_install='ie6_after.sh %s' % (user_name)
-      os.system(./after_install)
+      after_install='./ie6_after.sh %s' % (user_name)
+      os.system(after_install)
       break
      else:
-      os.system(./install_cmd)
+      os.system('./install_cmd')
       try_times += 1
     
     

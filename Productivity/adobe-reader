@@ -19,7 +19,7 @@
 # @debian ''
 # @ubuntu ''
 # @platform 'i386 AMD64'
-# @child 'Common/add-apt-sources'
+# @child 'Common/add-apt-sources Common/debinstall.py'
 
 case "$PLAT_NAME" in
 i686)
@@ -39,7 +39,7 @@ sudo apt-get --force-yes -y --purge remove adobereader-enu
 rm -f "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/reader_prefs"
 
 echo '正在安裝 Adobe Reader 8.1.4...中文版'
-"$TOP_DIR/scripts/debinstall.py" *.deb
+"$TOP_DIR/debinstall.py" *.deb
 
 echo '正在安裝 Adobe Reader 繁體中文字型支援...'
 tar -xzf FontPack81_cht_i486-linux.tar.gz
