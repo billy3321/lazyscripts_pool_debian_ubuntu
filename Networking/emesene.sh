@@ -15,7 +15,7 @@
 # @ubuntu ''
 # @platform 'i386 AMD64'
 
-apt-get install emesene
+apt-get -y --force-yes install emesene
 
 wget http://emesene.org/trac/raw-attachment/wiki/Plugins/LastSaid.py
 
