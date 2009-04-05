@@ -30,7 +30,7 @@ def ie4linux_cmd(user_name):
       os.system(after_install)
       break
      else:
-      os.system('./install_cmd')
+      os.system(install_cmd)
       try_times += 1
     
     
