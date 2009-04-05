@@ -15,12 +15,19 @@
 # @parent 'Networking/ie6'
 # @hide
 
-CORRECT_DESKTOP_DIR="/home/${1}/桌面"
+case $DISTRIB_ID in 
+    Ubuntu)
+    CORRECT_DESKTOP_DIR="/home/${1}/桌面"
+    ;;
+    Debian)
+    CORRECT_DESKTOP_DIR="/home/${1}/Desktop"
+    ;;
+esac
 CORRECT_HOME="/home/${1}"
 CORRECT_USER="$1"
 
 cd $TMP_DIR
-
+echo "Make ie6 desktop icon for ${CORRECT_USER}"
 # Since the desktop icon provided by ies4linux is extremely ugly,
 # we create our own desktop icon using the original icon of IE6.
 if [ ! -s /usr/share/pixmaps/msie6.png ];then
@@ -52,6 +59,7 @@ fi
 
 if [ ! -d $CORRECT_DESKTOP_DIR ];then
  mkdir -p $CORRECT_DESKTOP_DIR
+ chown -R ${CORRECT_USER}.${CORRECT_USER} ${CORRECT_DESKTOP_DIR}
 fi
 
 su -c "cp \"/usr/share/applications/msie6.desktop\" \"$CORRECT_DESKTOP_DIR\" " $CORRECT_USER
