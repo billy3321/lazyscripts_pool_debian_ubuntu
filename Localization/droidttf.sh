@@ -17,7 +17,7 @@
 
 . add-apt-sources
 
-add_ubuntu_fonts()
+add_ubuntu_fonts
 
 sudo apt-get install ttf-droid
 
