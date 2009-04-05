@@ -37,6 +37,7 @@ fi
 echo "Whos repo you want to sync?"
 echo "1. hychen"
 echo "2. billy3321"
+echo "3. yurenju"
 echo "Please enter your choice:"
 read -p "What do you want to do now? Please enter the number:" ACT
   case $ACT in
@@ -46,7 +47,11 @@ read -p "What do you want to do now? Please enter the number:" ACT
    ;;
    "2")
    choice_branch
-   git pull git://github.com/billy3321/lazyscript_pool.git $BRANCH && push_repo
+   git pull git://github.com/billy3321/lazyscripts_pool_debian_ubuntu.git $BRANCH && push_repo
+   ;;
+   "3")
+   choice_branch
+   git pull git://github.com/yurenju/lazyscripts_pool_debian_ubuntu.git $BRANCH && push_repo
    ;;
    *)
    echo "Please enter a number."
