@@ -16,10 +16,6 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
-# @child 'Common/echo1'
-#echo `pwd`
-#. echo1
-#echo $TEST_MSG
 
 apt-get -y --force-yes install gmountiso
 
