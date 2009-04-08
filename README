@@ -1,4 +1,5 @@
-scripts and config pool for lazyscript Project
+
+scripts and config pool for Lazyscripts Project
 
 description format:
 # @name_enUS '' 
@@ -14,6 +15,8 @@ description format:
 # @debian ''
 # @ubuntu ''
 # @platform ''
+# @child
+# @hide
 
 ex:
 # @name_enUS 'english script name.'
@@ -30,6 +33,15 @@ ex:
 # @debian
 # @ubuntu
 # @platform 'i386 amd64'
+# @child 'Common/add-apt-sources Common/debinstall.py'
+# @hide
 
 For more information please check wiki
-http://wiki.github.com/billy3321/lazyscript_pool/script-meta-data-and-category
+http://wiki.github.com/billy3321/lazyscripts_pool_debian_ubuntu/script-meta-data-and-category
+
+Lazyscripts home page:
+http://code.google.com/p/lazyscripts/
+
+Lazyscripts source code:
+http://github.com/hychen/lazyscripts
+
