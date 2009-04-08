@@ -71,4 +71,36 @@ else
     echo 'WineHQ 套件庫已經存在'
 fi
 }
+
+function add_playonlinux() {
+case $DISTRIB_ID in 
+    "Ubuntu")
+    HAS_PLAYONLINUX=`grep 'deb http://deb.mulx.net/' /etc/apt/sources.list`
+    if [ -z "$HAS_PLAYONLINUX" ]; then
+     
+        
+        echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://deb.mulx.net/ $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
+        wget -q http://deb.mulx.net/pol.gpg -O- | sudo apt-key add - && sudo apt-get update
+    else 
+        echo 'PlayOnLinux 套件庫已經存在'
+    fi
+    ;;
+    "Debian")
+    HAS_PLAYONLINUX=`grep 'deb http://deb.mulx.net/' /etc/apt/sources.list`
+    if [ -z "$HAS_PLAYONLINUX" ]; then
+        echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://deb.mulx.net/ $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
+        # echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://apt.wxwidgets.org/ etch-wx main" | sudo tee -a /etc/apt/sources.list
+        wget -q http://deb.mulx.net/pol.gpg -O- | sudo apt-key add - && sudo apt-get update
+        # sudo apt-get update
+    else
+        echo 'PlayOnLinux 套件庫已經存在'
+    fi
+    ;;
+    *)
+    echo "Sorry, Lazyscripts not support $DISTRIB_ID "
+    ;;
+esac
+
+}
+
 #END
