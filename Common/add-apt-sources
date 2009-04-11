@@ -103,9 +103,9 @@ esac
 
 }
 
-function add_wicd_sources() {
- HAS_WICD_SOURCES=`grep 'deb http://apt.wicd.net' /etc/apt/sources.list`
-  if [ -z "$HAS_WICD_SOURCES" ]; then
+function add_wicd() {
+ HAS_WICD=`grep 'deb http://apt.wicd.net' /etc/apt/sources.list`
+  if [ -z "$HAS_WICD" ]; then
     if [ "$DISTRIB_ID" = "Ubuntu" ]; then
       echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRIB_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
   elif [ "$DISTRIB_ID" = "Debian" ]; then

@@ -18,7 +18,7 @@
 # @child 'Common/add-apt-sources'
 
 . add-apt-sources
-add_wicd_source
+add_wicd
 
 apt-get -y --force-yes install wicd
 
