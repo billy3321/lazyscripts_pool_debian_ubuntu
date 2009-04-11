@@ -125,7 +125,11 @@ function add_wicd() {
 function add_virtualbox() {
  HAS_VIRTUALBOX=`grep 'deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
   if [ -z "$HAS_VIRTUALBOX" ]; then
-      echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRIB_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list
+      if [ $DISTRIB_CODENAME == "jaunty" ]; then
+          echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian intrepid non-free\n" | sudo tee -a /etc/apt/sources.list
+      else
+          echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRIB_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list
+      fi
 	  wget -q http://download.virtualbox.org/virtualbox/debian/sun_vbox.asc -O- | sudo apt-key add -
       sudo apt-get update
   else
