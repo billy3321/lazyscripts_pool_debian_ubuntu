@@ -14,7 +14,6 @@
 # @author '2007 洪任諭(PCMan) <pcman.tw -AT- gmail.com>'
 # @license 'GPL'
 # @ubuntu 
-# @debian
 # @platform 'i386 amd64'
 
 apt-get -y --force-yes install gmountiso
