@@ -116,7 +116,7 @@ function add_wicd_sources() {
   else
       echo 'Wicd 套件庫已經存在'
 
- fi
+  fi
 
 }
 
