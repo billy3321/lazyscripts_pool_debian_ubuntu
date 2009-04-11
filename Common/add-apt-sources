@@ -103,4 +103,21 @@ esac
 
 }
 
+function add_wicd_sources() {
+ HAS_WICD_SOURCES=`grep 'deb http://apt.wicd.net' /etc/apt/sources.list`
+  if [ -z "$HAS_WICD_SOURCES" ]; then
+    if [ "$DISTRIB_ID" = "Ubuntu" ]; then
+      echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRIB_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
+  elif [ "$DISTRIB_ID" = "Debian" ]; then
+      echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRIB_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
+    fi
+      wget -q http://apt.wicd.net/wicd.gpg -O- | sudo apt-key add -
+      sudo apt-get update
+  else
+      echo 'Wicd 套件庫已經存在'
+
+ fi
+
+}
+
 #END
