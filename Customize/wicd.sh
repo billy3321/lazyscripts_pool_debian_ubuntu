@@ -22,6 +22,4 @@ add_wicd
 
 apt-get -y --force-yes install wicd
 
-
-
 #END
