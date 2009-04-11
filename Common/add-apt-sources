@@ -10,7 +10,7 @@
 
 
 function add_medibuntu() {
-HAS_MEDIBUNTU=`grep 'deb http://packages.medibuntu.org/' /etc/apt/sources.list`
+HAS_MEDIBUNTU=`grep '^deb http://packages.medibuntu.org/' /etc/apt/sources.list`
 if [ -z "$HAS_MEDIBUNTU" ]; then
 # FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
     echo -e "#the source of Medibuntu (Lazyscripts 新增)\ndeb http://packages.medibuntu.org/ $DISTRIB_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
@@ -21,7 +21,7 @@ fi
 }
 
 function add_ubuntu_tweak() {
-HAS_UBUNTU_TWEAK=`grep 'deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list`
+HAS_UBUNTU_TWEAK=`grep '^deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list`
 if [ -z "$HAS_UBUNTU_TWEAK" ]; then
     if [ "$DISTRIB_CODENAME" = 'intrepid' ];then
         echo -e "\n#the source of Ubuntu Tweak (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main" | sudo tee -a /etc/apt/sources.list
@@ -36,7 +36,7 @@ fi
 }
 
 function add_ubuntu_fonts() {
- HAS_UBUNTU_FONTS=`grep 'deb http://ppa.launchpad.net/fonts/ubuntu' /etc/apt/sources.list`
+ HAS_UBUNTU_FONTS=`grep '^deb http://ppa.launchpad.net/fonts/ubuntu' /etc/apt/sources.list`
   if [ -z "$HAS_UBUNTU_FONTS" ]; then
     if [ "$DISTRIB_ID" = "Ubuntu" ]; then
       echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu $DISTRIB_CODENAME main \n" | sudo tee -a /etc/apt/sources.list
@@ -52,7 +52,7 @@ function add_ubuntu_fonts() {
 }
 
 function add_swiftfox() {
-HAS_SWIFTFOX=`grep swiftfox /etc/apt/sources.list`
+HAS_SWIFTFOX=`grep '^deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list`
 if [ -z "$HAS_SWIFTFOX" ]; then
   echo -e "#the source of swiftfox (Lazyscripts 新增)\ndeb http://getswiftfox.com/builds/debian unstable non-free" >> /etc/apt/sources.list
     sudo apt-get update
@@ -62,7 +62,7 @@ fi
 }
 
 function add_winehq() {
-HAS_WINEHQ=`grep 'deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list`
+HAS_WINEHQ=`grep '^deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list`
 if [ -z "$HAS_WINEHQ" ]; then
 # FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
     echo -e "#the source of WineHQ Apt  (Lazyscripts 新增)\ndeb http://wine.budgetdedicated.com/apt $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
@@ -75,7 +75,7 @@ fi
 function add_playonlinux() {
 case $DISTRIB_ID in 
     "Ubuntu")
-    HAS_PLAYONLINUX=`grep 'deb http://deb.mulx.net/' /etc/apt/sources.list`
+    HAS_PLAYONLINUX=`grep '^deb http://deb.mulx.net/' /etc/apt/sources.list`
     if [ -z "$HAS_PLAYONLINUX" ]; then
      
         
@@ -86,7 +86,7 @@ case $DISTRIB_ID in
     fi
     ;;
     "Debian")
-    HAS_PLAYONLINUX=`grep 'deb http://deb.mulx.net/' /etc/apt/sources.list`
+    HAS_PLAYONLINUX=`grep '^deb http://deb.mulx.net/' /etc/apt/sources.list`
     if [ -z "$HAS_PLAYONLINUX" ]; then
         echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://deb.mulx.net/ $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
         # echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://apt.wxwidgets.org/ etch-wx main" | sudo tee -a /etc/apt/sources.list
@@ -105,7 +105,7 @@ esac
 
 
 function add_wicd() {
- HAS_WICD=`grep 'deb http://apt.wicd.net' /etc/apt/sources.list`
+ HAS_WICD=`grep '^deb http://apt.wicd.net' /etc/apt/sources.list`
   if [ -z "$HAS_WICD" ]; then
     if [ "$DISTRIB_ID" = "Ubuntu" ]; then
       echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRIB_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
@@ -123,7 +123,7 @@ function add_wicd() {
 
 
 function add_virtualbox() {
- HAS_VIRTUALBOX=`grep 'deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
+ HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
   if [ -z "$HAS_VIRTUALBOX" ]; then
       if [ $DISTRIB_CODENAME == "jaunty" ]; then
           echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian intrepid non-free\n" | sudo tee -a /etc/apt/sources.list
