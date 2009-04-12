@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
 #
-# @name_enUS 'Install VirtaulBox'
-# @name_zhTW '安裝 VirtualBox 虛擬機器'
+# @name_enUS 'Install SUN xVM VirtaulBox'
+# @name_zhTW '安裝 SUN xVM VirtualBox 虛擬機器'
 # @desc_enUS ''
-# @desc_zhTW 'VirtualBox 是一個由 SUN 開發的虛擬機器工具，可以在系統上虛擬出數台虛擬機器進行工作。'
+# @desc_zhTW 'SUN xVM VirtualBox 是一個由 SUN 開發的虛擬機器工具，可以在系統上虛擬出數台虛擬機器進行工作。'
 # @warn_enUS ''
 # @warn_zhTW ''
 # @category 'Customize'
