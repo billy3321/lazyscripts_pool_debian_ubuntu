@@ -12,6 +12,7 @@
 # @license 'GPL'
 # @ubuntu 
 # @platform 'i386 amd64'
+# @hide
 
 # List all filenames started with '.'
 FILES_TO_FIX=`find $REAL_HOME -maxdepth 1 -name ".*"`
