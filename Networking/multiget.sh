@@ -30,7 +30,7 @@ case $DISTRIB_ID in
 		esac
 		;;
     "Ubuntu")
-	apt-get --force-yes -y install multiget
+	./download-install MultiGet "http://ncu.dl.sourceforge.net/sourceforge/multiget/multiget_1.1.2-0getdeb1_i386.deb"
 	;;
 	*)
 	echo "Sorry, Lazyscripts not support $DISTRIB_ID"
