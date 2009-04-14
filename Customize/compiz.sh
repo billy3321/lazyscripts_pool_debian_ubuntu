@@ -20,9 +20,14 @@ echo "安裝 Compiz Fusion"
 
 apt-get -y --force-yes  install compiz fusion-icon emerald
 
-mkdir -p ~/.config/autostart/
+USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 
-cat > ~/.config/autostart/fusion-icon.desktop <<EOF
+for u in $USERS
+do 
+
+mkdir -p ~$u/.config/autostart/
+
+cat > ~$u/.config/autostart/fusion-icon.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
@@ -33,5 +38,6 @@ Exec=fusion-icon
 X-GNOME-Autostart-enabled=true
 EOF
 
+done
 
 #END
