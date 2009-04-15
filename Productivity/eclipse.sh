@@ -4,7 +4,7 @@
 #
 # @name_enUS 'Install Eclipse'
 # @name_zhTW '安裝 Eclipse'
-# @desc_enUS ''
+# @desc_enUS 'Eclipse is a multi-language software development platform comprising an IDE and a plug-in system to extend it.'
 # @desc_zhTW '一個跨平台的程式撰寫工具。'
 # @warn_enUS ''
 # @warn_zhTW ''
@@ -18,6 +18,39 @@
 
 echo "安裝 Eclipse"
 
-apt-get -y --force-yes  install eclipse
+mkdir -p ./temp/eclipse
+
+TOP_DIR=$PWD
+
+
+cd ./temp/eclipse
+
+# Download Eclipse
+wget 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+
+# Install Eclipse
+
+tar zxvf ./*.tar.gz -C /opt/
+
+cd $TOP_DIR
+
+# build menu entry
+
+cat > /usr/share/applications/eclipse.desktop << EOF
+[Desktop Entry]
+Name=Eclipse
+Comment=Develop applications in a variety of different programming languages
+Exec=/opt/eclipse/eclipse
+Icon=eclipse48.png
+Terminal=false
+Type=Application
+Categories=Development;
+StartupNotify=true
+EOF
+
+#修正權限問題
+chown -R root. /opt/eclipse
+
+#apt-get -y --force-yes  install eclipse
 
 #END
