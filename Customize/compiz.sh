@@ -25,7 +25,9 @@ USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 for u in $USERS
 do 
 
-mkdir -p ~$u/.config/autostart/
+if [ ! -d ~$u/.config/autostart ];then
+    mkdir -p ~$u/.config/autostart/
+fi
 
 cat > ~$u/.config/autostart/fusion-icon.desktop <<EOF
 [Desktop Entry]
@@ -37,6 +39,8 @@ Name[zh_TW]=Compiz
 Exec=fusion-icon
 X-GNOME-Autostart-enabled=true
 EOF
+
+chown -R ${u}.${u} ~${u}/.config/autostart/
 
 done
 

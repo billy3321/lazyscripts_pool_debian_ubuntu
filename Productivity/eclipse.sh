@@ -20,13 +20,13 @@ echo "安裝 Eclipse"
 
 mkdir -p ./temp/eclipse
 
-TOP_DIR=$PWD
+TOP_DIR=`pwd`
 
 
 cd ./temp/eclipse
 
 # Download Eclipse
-wget 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
 
 # Install Eclipse
 
@@ -49,7 +49,7 @@ StartupNotify=true
 EOF
 
 #修正權限問題
-chown -R root. /opt/eclipse
+chown -R root.root /opt/eclipse
 
 #apt-get -y --force-yes  install eclipse
 
