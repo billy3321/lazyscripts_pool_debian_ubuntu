@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
 #
-# @name_enUS 'Install Eclipse'
-# @name_zhTW '安裝 Eclipse'
+# @name_enUS 'Install Eclipse 3.4.2'
+# @name_zhTW '安裝 Eclipse 3.4.2'
 # @desc_enUS 'Eclipse is a multi-language software development platform comprising an IDE and a plug-in system to extend it.'
 # @desc_zhTW '一個跨平台的程式撰寫工具。'
 # @warn_enUS ''
-# @warn_zhTW ''
+# @warn_zhTW '注意！！Eclipse安裝檔152MB ，請衡量當地網路環境，以決定是否安裝。'
 # @category 'Productivity'
 # @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
