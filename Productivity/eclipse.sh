@@ -36,11 +36,16 @@ cd $TOP_DIR
 
 # build menu entry
 
+cat > /usr/bin/eclipse << EOF
+#!/bin/bash
+/opt/eclipse/eclipse
+EOF
+
 cat > /usr/share/applications/eclipse.desktop << EOF
 [Desktop Entry]
 Name=Eclipse
 Comment=Develop applications in a variety of different programming languages
-Exec=/opt/eclipse/eclipse
+Exec=/usr/bin/eclipse
 Icon=eclipse48.png
 Terminal=false
 Type=Application
@@ -49,6 +54,7 @@ StartupNotify=true
 EOF
 
 #修正權限問題
+chmod a+x /usr/bin/eclipse
 chown -R root.root /opt/eclipse
 
 #apt-get -y --force-yes  install eclipse
