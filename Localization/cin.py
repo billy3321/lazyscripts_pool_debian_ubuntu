@@ -109,7 +109,7 @@ def user_scope (selected_cin):
 
 
 def main():
-    apt_cmd = "apt-get -y install "
+    apt_cmd = "apt-get -y --force-yes install "
 
     gcin_text = "gcin \"由台灣網友開發的輸入法，有許多在地化的調校，\n是在臺灣相當受到歡迎的中文輸入法。\n有許多方便的功能，穩定而強大，內建多種輸入法，\n包括功能類似微軟新注音的詞音輸入法、並「可支援無蝦米」。\n但和 Windows 下常見的操作習慣相差不少，新手可能會很不習慣。\n\""
     scim_text = "scim \"Ubuntu 預設的中文輸入法，可以輸入多國文字，功能強大，\n操作和 Windows 上接近，內含類似新注音，相當知名的新酷音輸入法，\n但是比較龐大，目前穩定性也不及 gcin\n\""

@@ -8,7 +8,7 @@
 # @desc_zhTW '一個由Sun(昇陽)所發展出來的跨平台Java開發平台，目前支援許多不同語言。Ex: C/C++,Ruby...'
 # @warn_enUS ''
 # @warn_zhTW ''
-# @category 'Productivity'
+# @category 'Development'
 # @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @license 'GPL'
