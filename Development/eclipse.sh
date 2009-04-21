@@ -8,7 +8,7 @@
 # @desc_zhTW '一個跨平台的程式撰寫工具。'
 # @warn_enUS ''
 # @warn_zhTW '注意！！Eclipse安裝檔152MB ，請衡量當地網路環境，以決定是否安裝。'
-# @category 'Productivity'
+# @category 'Development'
 # @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @license 'GPL'

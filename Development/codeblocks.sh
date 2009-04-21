@@ -8,7 +8,7 @@
 # @desc_zhTW '一個跨平台且開放原始碼的軟體開發工具，支援多種專案格式。'
 # @warn_enUS ''
 # @warn_zhTW ''
-# @category 'Productivity'
+# @category 'Development'
 # @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @license 'GPL'
