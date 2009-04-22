@@ -24,8 +24,8 @@ prams = {'file':'yEd3_1_2_1.sh',
 		'task':'accept',
 		'agree':'true'}
 
-if os.getuid() != 0:
-	exit_script('please run as root.')
+#if os.getuid() != 0:
+#	exit_script('please run as root.')
 
 print 'starting to dowload installer..'
 res = urllib.urlopen(dwurl, urllib.urlencode(prams))
@@ -36,6 +36,7 @@ if not respone:
 				where download url exists.')
 
 regex ='.*<a href="(.*)">start yEd download</a>'
+
 real_dwurl = re.findall(regex,respone, re.M)[0]
 
 if not real_dwurl:
