@@ -20,12 +20,12 @@ def exit_script(msg):
 
 host = 'http://www.yworks.com'
 dwurl = host+'/en/products_download.php'
-prams = {'file':'yEd3_1_2_1.sh',
+prams = {'file':'yEd3_2_0_1.sh',
 		'task':'accept',
 		'agree':'true'}
 
-#if os.getuid() != 0:
-#	exit_script('please run as root.')
+if os.getuid() != 0:
+	exit_script('please run as root.')
 
 print 'starting to dowload installer..'
 res = urllib.urlopen(dwurl, urllib.urlencode(prams))
@@ -35,8 +35,7 @@ if not respone:
 	exit_script('can not feth content of the page \
 				where download url exists.')
 
-regex ='.*<a href="(.*)">start yEd download</a>'
-
+regex ='<a href="(.*)">start yEd download</a>'
 real_dwurl = re.findall(regex,respone, re.M)[0]
 
 if not real_dwurl:
@@ -50,11 +49,7 @@ except IndexError:
 path = '/tmp/'+filename
 
 if not os.path.isfile(path):
-	script_content = urllib.urlopen(host+real_dwurl).read()
-	if not script_content:
-		exit_script('can not download file.')
-
-	open('/tmp/'+filename, 'w').write(script_content)
+    os.system("/usr/bin/env wget -c %s -O %s" % (host+real_dwurl,path))
 
 print 'run installer'
 os.system('bash '+path)
