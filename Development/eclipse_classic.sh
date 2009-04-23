@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
 #
-# @name_enUS 'Install Eclipse 3.4.2'
-# @name_zhTW '安裝 Eclipse 3.4.2'
+# @name_enUS 'Install Eclipse Classic 3.4.2'
+# @name_zhTW '安裝 Eclipse Classic 3.4.2'
 # @desc_enUS 'Eclipse is a multi-language software development platform comprising an IDE and a plug-in system to extend it.'
 # @desc_zhTW '一個跨平台的程式撰寫工具。'
 # @warn_enUS ''
@@ -26,7 +26,17 @@ TOP_DIR=`pwd`
 cd ./temp/eclipse
 
 # Download Eclipse
-$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+case $DISTR_ID in
+		"i686")
+			$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+		;;
+		"x86_64")
+			$WGET 'http://ftp.cs.pu.edu.tw/pub/eclipse/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+		;;
+		*)
+			echo "Sorry, Lazyscripts not support $PLAT_ID."
+		;;
+esac
 
 # Install Eclipse
 
