@@ -39,6 +39,7 @@ echo "1. hychen"
 echo "2. billy3321"
 echo "3. yurenju"
 echo "4. aminzai"
+echo "5. c9s"
 echo "0. others"
 echo "q. cancel"
 echo "Please enter your choice:"
@@ -59,6 +60,10 @@ read -p "What do you want to do now? Please enter the number:" ACT
    "4")
    choice_branch
    git pull git://github.com/aminzai/lazyscripts_pool_debian_ubuntu.git $BRANCH && push_repo
+   ;;
+   "5")
+   choice_branch
+   git pull git://github.com/c9s/lazyscripts_pool_debian_ubuntu.git $BRANCH && push_repo
    ;;
    "0")
    read -p "Please enter the git repo:" URL
