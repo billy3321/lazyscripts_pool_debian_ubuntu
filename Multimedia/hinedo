@@ -26,12 +26,12 @@ case "$PLAT_NAME" in
 i686)
 URL=`$WGET -O - 'http://of.openfoundry.org/projects/814/download' | \
         sed -n 's/^.*<a href="\(.*hinedo.*ubuntu.*i386.deb\)">.*$/\1/p' | sed '2,2d'`
-if [ x"$DISTRIB_CODENAME" = x"gutsy" -o \
-     x"$DISTRIB_CODENAME" = x"hardy" -o \
-     x"$DISTRIB_CODENAME" = x"intrepid" ]; then
+if [ x"$DISTRO_CODENAME" = x"gutsy" -o \
+     x"$DISTRO_CODENAME" = x"hardy" -o \
+     x"$DISTRO_CODENAME" = x"intrepid" ]; then
     scripts/download-install hinedo "$URL"
 else
-    echo "Hinedo 目前沒有給 $DISTRIB_CODENAME 使用的版本，取消安裝。"
+    echo "Hinedo 目前沒有給 $DISTRO_CODENAME 使用的版本，取消安裝。"
 fi
 ;;
 x86_64)

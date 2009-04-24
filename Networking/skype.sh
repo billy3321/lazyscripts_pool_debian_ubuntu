@@ -31,12 +31,12 @@ x86_64)
 
 ./multimedia-repos
 
-case "$DISTRIB_ID" in
+case "$DISTRO_ID" in
 ubuntu)
 
 # 將以下網址之內容執行於下
 # http://ubuntuforums.org/showthread.php?t=432295
- case "$DISTRIB_CODENAME" in
+ case "$DISTRO_CODENAME" in
  intrepid)
  apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
  ./download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
@@ -66,7 +66,7 @@ ubuntu)
 
  ;;
 # *)
-# echo "抱歉，$PLAT_NAME硬體架構版本之skype不支援ubuntu $DISTRIB_NAME。"
+# echo "抱歉，$PLAT_NAME硬體架構版本之skype不支援ubuntu $DISTRO_NAME。"
 # ;;
  esac
  Debian)

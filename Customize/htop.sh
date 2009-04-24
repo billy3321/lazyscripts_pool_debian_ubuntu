@@ -15,8 +15,6 @@
 # @debian
 # @ubuntu 
 # @platform 'i386 amd64'
-echo $DISTRIB_ID
-echo $PLAT_NAME
 
 apt-get -y --force-yes install htop
 

@@ -18,17 +18,17 @@
 # @platform 'i386 AMD64'
 # @child 'Common/add_repos.py'
 
-if [ "$DISTRIB_ID" == "Debian" ]; then
+if [ "$DISTRO_ID" == "Debian" ]; then
     uri="http://ftp.tw.debian.org/debian-multimedia/"
     comps="main"
     extra_packages=""
-elif [ "$DISTRIB_ID" == "Ubuntu" ]; then
+elif [ "$DISTRO_ID" == "Ubuntu" ]; then
     uri="http://packages.medibuntu.org/"
     comps="free non-free"
     extra_packages="non-free-codecs"
 fi
 
-./add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
+./add_repos.py "$uri" "$DISTRO_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
 
 apt-get update
 
