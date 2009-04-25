@@ -90,14 +90,15 @@ fu! QFixToggle(forced)
 endf   
 nn      <leader>q :QFix<cr>
 
+
 VIMRC
 #    }}}
-
+# vim colorscheme {{{
 # fetch vim color scheme
 # from: http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/
 mkdir -p ~/.vim/color
 $WGET http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/rdark.vim -O~/.vim/color/rdark.vim
 echo "colors rdark" >> ~/.gvimrc
-
+# }}}
 
 #END
