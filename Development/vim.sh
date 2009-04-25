@@ -25,6 +25,8 @@ apt-get install vim-full -y
 cp -v ~/.vimrc ~/.vimrc.bak.`date +%Y%m%d`
 cat <<VIMRC  > ~/.vimrc
 " lazyscript vimrc ====================================
+" author: c9s
+
 syntax on
 filetype on
 filetype plugin on
