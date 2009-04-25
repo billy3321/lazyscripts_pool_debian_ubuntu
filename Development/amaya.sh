@@ -28,12 +28,12 @@ cd ./temp/amaya
 # Download Amaya
 case $DISTR_ID in
 		"Debian")
-			case $PALT_ID in
+			case $PALT_NAME in
 					"i686")
 						$WGET 'http://www.w3.org/Amaya/Distribution/amaya_wx-11.1-1_i386.deb'
 					;;
 					"x86_64")
-						echo "Sorry!! Lazyscript not support $PALT_ID."
+						echo "Sorry!! Lazyscript not support $PALT_NAME."
 					;;
 			esac
 		;;
@@ -43,7 +43,7 @@ case $DISTR_ID in
 						$WGET 'http://www.w3.org/Amaya/Distribution/amaya_wx-11.1-ubuntu1_i386.deb'
 					;;
 					"x86_64")
-						echo "Sorry!! Lazyscript not support $PALT_ID."
+						echo "Sorry!! Lazyscript not support $PALT_NAME."
 					;;
 			esac
 		;;
