@@ -1,5 +1,6 @@
 #!/bin/bash 
 # -*- coding: utf-8 -*-
+# vim:et:fdm=marker:fdl=1:
 # GPL
 #
 # @name_enUS 'Install Vim'
@@ -20,7 +21,7 @@ echo "安裝 Vim"
 
 apt-get install vim-full -y
 
-# basic vimrc
+# basic vimrc  #{{{
 cp -v ~/.vimrc ~/.vimrc.bak.`date +%Y%m%d`
 cat <<VIMRC  > ~/.vimrc
 " lazyscript vimrc ====================================
@@ -77,7 +78,6 @@ cno  <c-f>      <right>
 cno  <c-n>      <down>
 cno  <c-p>      <up>
 
-" quickfix window                                                                           {{{
 com! -bang -nargs=? QFix cal QFixToggle(<bang>0)
 fu! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
@@ -91,5 +91,13 @@ endf
 nn      <leader>q :QFix<cr>
 
 VIMRC
+#    }}}
+
+# fetch vim color scheme
+# from: http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/
+mkdir -p ~/.vim/color
+$WGET http://www.cs.cmu.edu/~maverick/VimColorSchemeTest/rdark.vim -O~/.vim/color/rdark.vim
+echo "colors rdark" >> ~/.gvimrc
+
 
 #END
