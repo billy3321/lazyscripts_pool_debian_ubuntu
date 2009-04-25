@@ -26,7 +26,7 @@ TOP_DIR=`pwd`
 cd ./temp/eclipse
 
 # Download Eclipse
-case $DISTR_ID in
+case $DISTRIB_ID in
 		"i686")
 			$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
 		;;
