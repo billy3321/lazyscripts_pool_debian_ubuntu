@@ -26,5 +26,6 @@ elif [ "$DISTRO_ID" = "Debian" ]; then
 else
     echo "Lazyscripts don't support your distibution now"
 fi
+apt-get -y --force-yes install libflashsupport
 
 
