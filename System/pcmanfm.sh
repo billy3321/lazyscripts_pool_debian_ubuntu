@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
 #
-# @name_enUS 'Install Htop'
-# @name_zhTW '安裝 Htop 系統行程管理工具'
+# @name_enUS 'Install PCMan File Manager'
+# @name_zhTW '安裝 PCMan File Manager'
 # @desc_enUS ''
-# @desc_zhTW 'Htop 是一個輕量化的系統行程管理工具，簡單的介面可以清楚的瞭解目前系統行程狀態，是除了系統預設行程管理的另一個不錯的行程。'
+# @desc_zhTW '由PCMan所開發的檔案總管系統，有輕巧、方便等優點。'
 # @warn_enUS ''
 # @warn_zhTW ''
-# @category 'Customize'
+# @category 'System'
 # @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
 # @license 'GPL'
@@ -16,6 +16,6 @@
 # @ubuntu 
 # @platform 'i386 amd64'
 
-apt-get -y --force-yes install htop
+apt-get -y --force-yes install pcmanfm
 
 #END
