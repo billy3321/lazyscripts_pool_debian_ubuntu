@@ -21,7 +21,7 @@
 # @platform 'i386'
 
 case "$PLAT_NAME" in
-i686)
+i386)
 
 mkdir -p temp/gnetdict
 

@@ -18,7 +18,7 @@
 # @platform 'i386 amd64'
 
 echo "安裝 Emacs"
-apt-get install emacs -y
+apt-get -y --force-yes install emacs 
 # basic emacs.d  #{{{
 
 # }}}

@@ -33,7 +33,7 @@ fi
 apt-get update
 
 case "$PLAT_NAME" in
-i686)
+i386)
     apt-get -y --force-yes install w32codecs $extra_packages
 ;;
 x86_64)

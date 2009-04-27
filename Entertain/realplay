@@ -23,7 +23,7 @@
 
 
 case "$PLAT_NAME" in
-i686)
+i386)
 echo '移除系統上原本的 Real Player 套件...'
 apt-get --force-yes -y remove --purge realplay
 

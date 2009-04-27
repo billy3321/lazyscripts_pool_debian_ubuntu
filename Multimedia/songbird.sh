@@ -27,14 +27,14 @@ cd ./temp/songbird/
 #Get songbird installation file
 
 case $PLAT_NAME in
-	"i686")
+	"i386")
 		wget http://download.songbirdnest.com/installer/linux/i686/Songbird_1.1.2-1042_linux-i686.tar.gz
 	;;
 	"x86_64")
 		wget http://download.songbirdnest.com/installer/linux/x86_64/Songbird_1.1.2-1042_linux-x86_64.tar.gz
 	;;
 	*)
-		echo "Sorry, Lazyscripts not support $DISTRB_ID"
+		echo "Sorry, Lazyscripts not support $PLAT_NAME"
 	;;
 esac
 

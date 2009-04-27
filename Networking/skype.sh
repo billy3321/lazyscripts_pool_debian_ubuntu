@@ -24,7 +24,7 @@
 echo "下載並安裝skype網路電話..."
 
 case "$PLAT_NAME" in
-i686)
+i386)
 ./download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'
 ;;
 x86_64)
