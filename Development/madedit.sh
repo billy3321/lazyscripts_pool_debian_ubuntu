@@ -23,7 +23,7 @@
 
 echo "正在下載並安裝MadEdit..."
 case "$PLAT_NAME" in
-'i686')
+'i386')
 ./download-install madedit http://nchc.dl.sourceforge.net/sourceforge/madedit/madedit_0.2.8-1_i386.deb
 ;;
 'x86_64')
