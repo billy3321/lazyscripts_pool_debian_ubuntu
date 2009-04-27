@@ -23,7 +23,7 @@
 
 
 case "$PLAT_NAME" in
-i686)
+i386)
 URL=`$WGET -O - 'http://of.openfoundry.org/projects/814/download' | \
         sed -n 's/^.*<a href="\(.*hinedo.*ubuntu.*i386.deb\)">.*$/\1/p' | sed '2,2d'`
 if [ x"$DISTRO_CODENAME" = x"gutsy" -o \

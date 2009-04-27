@@ -28,7 +28,7 @@
 add_medibuntu
 
 case "$PLAT_NAME" in
-i686)
+i386)
 apt-get -y --force-yes install non-free-codecs w32codecs
 ;;
 x86_64)

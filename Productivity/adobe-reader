@@ -22,7 +22,7 @@
 # @child 'Common/add-apt-sources Common/debinstall.py'
 
 case "$PLAT_NAME" in
-i686)
+i386)
 
 echo '正在下載 Adobe Reader 8.1.4 Linux 版...'
 mkdir -p temp/adobe-reader
