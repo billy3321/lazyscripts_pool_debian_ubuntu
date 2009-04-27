@@ -925,9 +925,47 @@ g3
 g4
 sg5
 g199
+<<<<<<< HEAD:scripts.list
 sg7
 I00
 sg8
+S'KXMame'
+p224
+sg10
+S'KXMame.sh'
+p225
+sa(dp226
+g3
+g4
+sg5
+S'Entertain'
+p227
+=======
+>>>>>>> master:scripts.list
+sg7
+I00
+sg8
+<<<<<<< HEAD:scripts.list
+S'\xe5\xae\x89\xe8\xa3\x9d VLC \xe6\x92\xad\xe6\x94\xbe\xe7\xa8\x8b\xe5\xbc\x8f'
+p228
+sg10
+S'vlc.sh'
+p229
+sa(dp230
+g3
+g4
+sg5
+g227
+sg7
+I00
+sg8
+S'\xe5\xae\x89\xe8\xa3\x9d Audacious'
+p231
+sg10
+S'audacious'
+p232
+sa(dp233
+=======
 S'KXMame'
 p224
 sg10
@@ -948,19 +986,7 @@ sg10
 S'vlc.sh'
 p229
 sa(dp230
-g3
-g4
-sg5
-g227
-sg7
-I00
-sg8
-S'\xe5\xae\x89\xe8\xa3\x9d Audacious'
-p231
-sg10
-S'audacious'
-p232
-sa(dp233
+>>>>>>> master:scripts.list
 g3
 g4
 sg5
@@ -968,12 +994,21 @@ g227
 sg7
 I01
 sg8
+<<<<<<< HEAD:scripts.list
 S'\xe5\xae\x89\xe8\xa3\x9d Mplayer \xe5\xaa\x92\xe9\xab\x94\xe6\x92\xad\xe6\x94\xbe\xe7\xa8\x8b\xe5\xbc\x8f'
 p234
 sg10
 S'mplayer'
 p235
 sa(dp236
+=======
+S'\xe5\xae\x89\xe8\xa3\x9d Audacious'
+p231
+sg10
+S'audacious'
+p232
+sa(dp233
+>>>>>>> master:scripts.list
 g3
 g4
 sg5
@@ -981,12 +1016,21 @@ g227
 sg7
 I01
 sg8
+<<<<<<< HEAD:scripts.list
 S'\xe5\xae\x89\xe8\xa3\x9d SMplayer - Mplayer \xe7\x9a\x84\xe6\x94\xb9\xe8\x89\xaf\xe5\xbc\x8f\xe4\xbb\x8b\xe9\x9d\xa2'
 p237
 sg10
 S'smplayer.sh'
 p238
 sa(dp239
+=======
+S'\xe5\xae\x89\xe8\xa3\x9d Mplayer \xe5\xaa\x92\xe9\xab\x94\xe6\x92\xad\xe6\x94\xbe\xe7\xa8\x8b\xe5\xbc\x8f'
+p234
+sg10
+S'mplayer'
+p235
+sa(dp236
+>>>>>>> master:scripts.list
 g3
 g4
 sg5
@@ -994,6 +1038,39 @@ g227
 sg7
 I00
 sg8
+<<<<<<< HEAD:scripts.list
+S'\xe5\xae\x89\xe8\xa3\x9d Audacity - \xe5\x8a\x9f\xe8\x83\xbd\xe5\xbc\xb7\xe5\xa4\xa7\xe7\x9a\x84\xe9\x8c\x84\xe9\x9f\xb3\xe8\xbb\x9f\xe9\xab\x94'
+p240
+sg10
+S'audacity.sh'
+p241
+sa(dp242
+=======
+S'\xe5\xae\x89\xe8\xa3\x9d SMplayer - Mplayer \xe7\x9a\x84\xe6\x94\xb9\xe8\x89\xaf\xe5\xbc\x8f\xe4\xbb\x8b\xe9\x9d\xa2'
+p237
+sg10
+S'smplayer.sh'
+p238
+sa(dp239
+>>>>>>> master:scripts.list
+g3
+g4
+sg5
+g227
+sg7
+I01
+sg8
+<<<<<<< HEAD:scripts.list
+S'\xe5\xae\x89\xe8\xa3\x9d Real Player 11 \xe6\x92\xad\xe6\x94\xbe\xe7\xa8\x8b\xe5\xbc\x8f'
+p243
+sg10
+S'realplay'
+p244
+sa(dp245
+g3
+g4
+sg5
+=======
 S'\xe5\xae\x89\xe8\xa3\x9d Audacity - \xe5\x8a\x9f\xe8\x83\xbd\xe5\xbc\xb7\xe5\xa4\xa7\xe7\x9a\x84\xe9\x8c\x84\xe9\x9f\xb3\xe8\xbb\x9f\xe9\xab\x94'
 p240
 sg10
@@ -1005,7 +1082,7 @@ g4
 sg5
 g227
 sg7
-I01
+I00
 sg8
 S'\xe5\xae\x89\xe8\xa3\x9d Real Player 11 \xe6\x92\xad\xe6\x94\xbe\xe7\xa8\x8b\xe5\xbc\x8f'
 p243
@@ -1016,6 +1093,7 @@ sa(dp245
 g3
 g4
 sg5
+>>>>>>> master:scripts.list
 S'Common'
 p246
 sg7
