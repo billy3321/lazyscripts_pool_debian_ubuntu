@@ -28,7 +28,7 @@ CPU=`./cpu-type.py`
 echo "自動偵測這台電腦上的 CPU 架構：$CPU"
 if [ -n "$CPU" ]; then
 	if [ "$CPU" = "pentium-m" ]; then
-		$CPU="i686"
+		apt-get -y --force-yes install swiftfox-i686
 	fi
 	apt-get -y --force-yes install "swiftfox-$CPU"
 else
