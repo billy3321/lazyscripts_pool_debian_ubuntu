@@ -27,7 +27,10 @@ add_swiftfox
 CPU=`./cpu-type.py`
 echo "自動偵測這台電腦上的 CPU 架構：$CPU"
 if [ -n "$CPU" ]; then
-    apt-get -y --force-yes install "swiftfox-$CPU"
+	if [ "$CPU" = "pentium-m" ]; then
+		$CPU="i686"
+	fi
+	apt-get -y --force-yes install "swiftfox-$CPU"
 else
     echo '錯誤：Lazyscripts 無法辨識本機 CPU 種類，安裝 SwiftFox 失敗'
 fi
