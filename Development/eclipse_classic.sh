@@ -30,9 +30,6 @@ case $DISTRIB_ID in
 		"i386")
 			$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
 		;;
-		"i686")
-		    $WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
-		;;
 		"x86_64")
 			$WGET 'http://ftp.cs.pu.edu.tw/pub/eclipse/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
 		;;
