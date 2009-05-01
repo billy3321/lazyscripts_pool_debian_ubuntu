@@ -26,7 +26,7 @@ TOP_DIR=`pwd`
 cd ./temp/amaya
 
 # Download Amaya
-case $DISTR_ID in
+case $DISTRO_ID in
 		"Debian")
 			case $PALT_NAME in
 					"i386")
