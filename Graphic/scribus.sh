@@ -14,7 +14,7 @@
 # @license 'GPL'
 # @debian
 # @ubuntu 
-# @platform 'i386'
+# @platform 'i386 amd64'
 
 apt-get -y --force-yes install scribus
 
