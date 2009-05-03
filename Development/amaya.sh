@@ -26,10 +26,10 @@ TOP_DIR=`pwd`
 cd ./temp/amaya
 
 # Download Amaya
-case $DISTR_ID in
+case $DISTRO_ID in
 		"Debian")
 			case $PALT_NAME in
-					"i686")
+					"i386")
 						$WGET 'http://www.w3.org/Amaya/Distribution/amaya_wx-11.1-1_i386.deb'
 					;;
 					"x86_64")
@@ -39,7 +39,7 @@ case $DISTR_ID in
 		;;
 		"Ubuntu")
 			case $PALT_ID in
-					"i686")
+					"i386")
 						$WGET 'http://www.w3.org/Amaya/Distribution/amaya_wx-11.1-ubuntu1_i386.deb'
 					;;
 					"x86_64")

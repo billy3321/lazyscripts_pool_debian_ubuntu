@@ -26,29 +26,29 @@ cd ./temp/codeblocks/
 
 #Get deb 
 
-case $DISTRIB_ID in
+case $DISTRO_ID in
     "Debian")
 		case $PLAT_NAME in 
-			"i686")
-    			wget http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02debian-i386.tar.gz
+			"i386")
+    			$WGET 'http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02debian-i386.tar.gz'
 			;;
 			"x86_64")
-				wget http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02debian-amd64.tar.gz 	
+				$WGET 'http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02debian-amd64.tar.gz'
 			;;
 		esac
 		;;
     "Ubuntu")
 		case $PLAT_NAME in
-			"i686")
-				wget http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks_8.02-0ubuntu1.deb.tar.gz
+			"i386")
+				$WGET 'http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks_8.02-0ubuntu1.deb.tar.gz'
 			;;
 			"x86_64")
-				wget http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02-amd64.tar.gz
+				$WGET 'http://nchc.dl.sourceforge.net/sourceforge/codeblocks/codeblocks-8.02-amd64.tar.gz'
 			;;
 		esac
 	;;
 	*)
-	echo "Sorry, Lazyscripts not support $DISTRIB_ID"
+	echo "Sorry, Lazyscripts not support $DISTRO_ID"
 	;;
 esac
 
