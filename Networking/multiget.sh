@@ -5,7 +5,7 @@
 # @name_enUS 'Install MultiGet'
 # @name_zhTW '安裝 MultiGet'
 # @desc_enUS 'MultiGet is an easy-to-use GUI file downloader for Windows/Linux/BSDs/MacOs.'
-# @desc_zhTW 'MultiGet 是一個簡單易用的圖型話介面的檔案下載工具。'
+# @desc_zhTW 'MultiGet 是一個簡單易用的圖形化介面的檔案下載工具。'
 # @warn_enUS ''
 # @warn_zhTW ''
 # @category 'Networking'
