@@ -23,6 +23,7 @@ apt-get -y --force-yes  install compiz fusion-icon
 #if emerald is not find, emerald will not installed
 apt-get -y --force-yes  install emerald
 
+echo "Start Build autostart"
 USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 
 for u in $USERS
