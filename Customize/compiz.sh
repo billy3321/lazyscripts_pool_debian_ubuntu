@@ -18,14 +18,17 @@
 
 echo "安裝 Compiz Fusion"
 
-apt-get -y --force-yes  install compiz fusion-icon emerald
+
+apt-get -y --force-yes  install compiz fusion-icon
+#if emerald is not find, emerald will not installed
+apt-get -y --force-yes  install emerald
 
 USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 
 for u in $USERS
 do 
 
-if [ ! -d ~$u/.config/autostart ];then
+if test ! -d ~$u/.config/autostart ;then
     mkdir -p ~$u/.config/autostart/
 fi
 
