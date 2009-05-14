@@ -18,18 +18,29 @@
 
 echo "安裝 Compiz Fusion"
 
-apt-get -y --force-yes  install compiz fusion-icon emerald
 
+apt-get -y --force-yes install compiz fusion-icon compizconfig-settings-manager
+#Add Compiz Fusion Plugin
+apt-get -y --force-yes install compiz-fusion-plugins-main compiz-fusion-plugins-extra
+#if emerald is not find, emerald will not installed
+apt-get -y --force-yes install emerald
+
+echo "Start Build autostart"
 USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 
 for u in $USERS
 do 
 
-if [ ! -d ~$u/.config/autostart ];then
-    mkdir -p ~$u/.config/autostart/
-fi
+    #get user home directory
+    UserHome=$(finger $u | grep 'Directory' | cut -d " " -f 2 )
 
-cat > ~$u/.config/autostart/fusion-icon.desktop <<EOF
+    #build user home autostart directory
+    UserHome_autostart=$UserHome/.config/autostart
+    
+    #Build Directory
+    mkdir -p $UserHome_autostart/
+
+cat > $UserHome_autostart/fusion-icon.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
@@ -40,7 +51,7 @@ Exec=fusion-icon
 X-GNOME-Autostart-enabled=true
 EOF
 
-chown -R ${u}.${u} ~${u}/.config/autostart/
+    chown -R ${u}.${u} ${UserHome_autostart}/
 
 done
 
