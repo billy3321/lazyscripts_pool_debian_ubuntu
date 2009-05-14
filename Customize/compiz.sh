@@ -19,9 +19,11 @@
 echo "安裝 Compiz Fusion"
 
 
-apt-get -y --force-yes  install compiz fusion-icon
+apt-get -y --force-yes install compiz fusion-icon compizconfig-settings-manager
+#Add Compiz Fusion Plugin
+apt-get -y --force-yes install compiz-fusion-plugins-main compiz-fusion-plugins-extra
 #if emerald is not find, emerald will not installed
-apt-get -y --force-yes  install emerald
+apt-get -y --force-yes install emerald
 
 echo "Start Build autostart"
 USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
