@@ -29,13 +29,14 @@ USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 for u in $USERS
 do 
 
-#get user home directory
-UserHome=$(finger $u | grep 'Directory' | cut -d " " -f 2 )
-#build user home autostart directory
-UserHome_autostart=$UserHome/.config/autostart
-#if test ! -d ~$u/.config/autostart ;then
-mkdir -p $UserHome_autostart/
-#fi
+    #get user home directory
+    UserHome=$(finger $u | grep 'Directory' | cut -d " " -f 2 )
+
+    #build user home autostart directory
+    UserHome_autostart=$UserHome/.config/autostart
+    
+    #Build Directory
+    mkdir -p $UserHome_autostart/
 
 cat > $UserHome_autostart/fusion-icon.desktop <<EOF
 [Desktop Entry]
@@ -48,7 +49,7 @@ Exec=fusion-icon
 X-GNOME-Autostart-enabled=true
 EOF
 
-chown -R ${u}.${u} ~${u}/.config/autostart/
+    chown -R ${u}.${u} ${UserHome_autostart}/
 
 done
 
