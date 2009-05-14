@@ -29,11 +29,15 @@ USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1)
 for u in $USERS
 do 
 
+#get user home directory
+UserHome=$(finger $u | grep 'Directory' | cut -d " " -f)
+#build user home autostart directory
+UserHome_autostart=$UserHome/.config/autostart
 #if test ! -d ~$u/.config/autostart ;then
-    mkdir -p ~$u/.config/autostart/
+mkdir -p $UserHome_autostart/
 #fi
 
-cat > ~$u/.config/autostart/fusion-icon.desktop <<EOF
+cat > $UserHome_autostart/fusion-icon.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
