@@ -30,7 +30,7 @@ for u in $USERS
 do 
 
 #get user home directory
-UserHome=$(finger $u | grep 'Directory' | cut -d " " -f)
+UserHome=$(finger $u | grep 'Directory' | cut -d " " -f 2 )
 #build user home autostart directory
 UserHome_autostart=$UserHome/.config/autostart
 #if test ! -d ~$u/.config/autostart ;then
