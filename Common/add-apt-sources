@@ -39,6 +39,7 @@ fi
 function add_debian_multimedia(){
 HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/apt/sources.list`
 if [ -z "$HAS_DEBIAN_MULTIMEDIA" ]; then
+    echo -e "\n#the source of Debian Multimedia (Lazyscripts 新增)\ndeb http://www.debian-multimedia.org stable main" | sudo tee -a /etc/apt/sources.list
     wget http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
     dpkg -i ./debian-multimedia-keyring_2008.10.16_all.deb
     apt-get update
