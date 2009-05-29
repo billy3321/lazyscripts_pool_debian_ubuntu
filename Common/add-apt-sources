@@ -10,16 +10,42 @@
 
 
 function add_medibuntu() {
-HAS_MEDIBUNTU=`grep '^deb http://packages.medibuntu.org/' /etc/apt/sources.list`
-if [ -z "$HAS_MEDIBUNTU" ]; then
-# FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
-    echo -e "#the source of Medibuntu (Lazyscripts 新增)\ndeb http://packages.medibuntu.org/ $DISTRO_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
-    wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add - && sudo apt-get update
+if [ -e /etc/apt/sources.list.d/medibuntu.list ];then
+    CHECK_MEDIBUNTU=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/medibuntu.list`
+    if [ -z "$CHECK_MEDIBUNTU" ];then
+        wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        apt-get -q update
+        apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
+        apt-get -q update
+    else
+        echo "Medibuntu 套件庫已經存在"
+    fi
 else
-    echo 'Medibuntu 套件庫已經存在'
+        wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        apt-get -q update
+        apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
+        apt-get -q update
+fi
+
+#HAS_MEDIBUNTU=`grep '^deb http://packages.medibuntu.org/' /etc/apt/sources.list`
+#if [ -z "$HAS_MEDIBUNTU" ]; then
+# FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
+#    echo -e "#the source of Medibuntu (Lazyscripts 新增)\ndeb http://packages.medibuntu.org/ $DISTRO_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
+#    wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add - && sudo apt-get update
+#else
+#    echo 'Medibuntu 套件庫已經存在'
+#fi
+}
+function add_debian_multimedia(){
+HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/ap/sources.list`
+if [ -z "HAS_DEBIAN_MULTIMEDIA"]; then
+    wget http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
+    dpkg -i ./debian-multimedia-keyring_*.deb
+    apt-get update
+else
+    echo "Debian Multimedia 套件庫已經存在"
 fi
 }
-
 function add_ubuntu_tweak() {
 HAS_UBUNTU_TWEAK=`grep '^deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list`
 if [ -z "$HAS_UBUNTU_TWEAK" ]; then
@@ -28,7 +54,7 @@ if [ -z "$HAS_UBUNTU_TWEAK" ]; then
     else
         echo -e "\n#the source of Ubuntu Tweak (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu hardy main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main" | sudo tee -a /etc/apt/sources.list
     fi  
-#    wget -q http://ppa.launchpad.net/tualatrix/??-key.gpg -O- | sudo apt-key add - 
+    wget -q http://ppa.launchpad.net/tualatrix/??-key.gpg -O- | sudo apt-key add - 
     sudo apt-get update
 else
    echo 'Ubuntu Tweak 套件庫已經存在'
