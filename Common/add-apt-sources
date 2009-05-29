@@ -37,10 +37,10 @@ fi
 #fi
 }
 function add_debian_multimedia(){
-HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/ap/sources.list`
+HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/apt/sources.list`
 if [ -z "HAS_DEBIAN_MULTIMEDIA"]; then
     wget http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
-    dpkg -i ./debian-multimedia-keyring_*.deb
+    dpkg -i ./debian-multimedia-keyring_2008.10.16_all.deb
     apt-get update
 else
     echo "Debian Multimedia 套件庫已經存在"
