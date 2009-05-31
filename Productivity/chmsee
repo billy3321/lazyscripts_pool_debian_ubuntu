@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
+#
+# @name_enUS 'Install ChmSee'
+# @name_zhTW '安裝 ChmSee' 
+# @desc_enUS 'ChmSee is the HTML help (CHM) viewer for Unix/Linux'
+# @desc_zhTW 'ChmSee是一個可以瀏覽CHM文件的電子書軟體。'
+# @warn_enUS ''
+# @warn_zhTW ''
+# @category 'Productivity'
+# @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @license 'GPL'
+# @debian
+# @ubuntu 
+# @platform 'i386 amd64'
+
+echo "安裝 ChmSee"
+
+apt-get install -y --force-yes chmsee 

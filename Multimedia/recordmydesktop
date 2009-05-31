@@ -1,0 +1,21 @@
+#!/bin/bash 
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
+#
+# @name_enUS 'Install recordMyDesktop'
+# @name_zhTW '安裝 recordMyDesktop'
+# @desc_enUS 'recordMyDesktop is a desktop session recorder for GNU/Linux and FreeBSD.'
+# @desc_zhTW 'recordMyDesktop 是一個簡單易用的桌面錄影軟體'
+# @warn_enUS ''
+# @warn_zhTW ''
+# @category 'Multimedia'
+# @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @license 'GPL'
+# @debian
+# @ubuntu 
+# @platform 'i386 amd64'
+
+echo "安裝 recordMyDesktop"
+
+apt-get install -y --force-yes gtk-recordmydesktop recordmydesktop 
