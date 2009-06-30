@@ -11,9 +11,9 @@
 # MediBuntu
 function add_medibuntu() {
 if [ -e /etc/apt/sources.list.d/medibuntu.list ];then
-    CHECK_MEDIBUNTU=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/medibuntu.list`
+    CHECK_MEDIBUNTU=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/medibuntu.list`
     if [ -z "$CHECK_MEDIBUNTU" ];then
-        wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        $WGET http://www.medibuntu.org/sources.list.d/${DISTRO_CODENAME}.list --output-document=/etc/apt/sources.list.d/medibuntu.list
         apt-get -q update
         apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
         apt-get -q update
@@ -21,7 +21,7 @@ if [ -e /etc/apt/sources.list.d/medibuntu.list ];then
         echo "Medibuntu 套件庫已經存在"
     fi
 else
-        wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        $WGET http://www.medibuntu.org/sources.list.d/${DISTRO_CODENAME}.list --output-document=/etc/apt/sources.list.d/medibuntu.list
         apt-get -q update
         apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
         apt-get -q update
@@ -33,7 +33,7 @@ function add_debian_multimedia(){
 HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/apt/sources.list`
 if [ -z "$HAS_DEBIAN_MULTIMEDIA" ]; then
     echo -e "\n#the source of Debian Multimedia (Lazyscripts 新增)\ndeb http://www.debian-multimedia.org stable main" | sudo tee -a /etc/apt/sources.list
-    wget http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
+    $WGET http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
     dpkg -i ./debian-multimedia-keyring_2008.10.16_all.deb
     apt-get update
 else
@@ -119,9 +119,9 @@ case $DISTRO_ID in
         echo -e "\n#the source of WXwidget.org (Lazyscripts 新增) \ndeb http://apt.wxwidgets.org/ etch-wx main \n" | sudo tee -a /etc/apt/sources.list
     fi
     if [ -e /et/apt/sources.list.d/playonlinux.list ] ; then
-        HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
+        HAS_PLAYONLINUX=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/playonlinux.list`
         if [ -z "$HAS_PLAYONLINUX" ];then
-            wget http://deb.playonlinux.com/playonlinux_$DISTRO_CODENAME.list -O /etc/apt/sources.list.d/playonlinux.list
+            $WGET http://deb.playonlinux.com/playonlinux_${DISTRO_CODENAME}.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
         else
             echo 'PlayOnLinux 套件庫已經存在'
