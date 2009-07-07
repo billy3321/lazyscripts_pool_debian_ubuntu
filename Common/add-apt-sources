@@ -120,9 +120,9 @@ case $DISTRO_ID in
         echo -e "\n#the source of WXwidget.org (Lazyscripts 新增) \ndeb http://apt.wxwidgets.org/ etch-wx main \n" | sudo tee -a /etc/apt/sources.list
     fi
     if [ -e /et/apt/sources.list.d/playonlinux.list ] ; then
-        HAS_PLAYONLINUX=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/playonlinux.list`
-        if [ -z "$HAS_PLAYONLINUX" ];then
-            $WGET http://deb.playonlinux.com/playonlinux_${DISTRO_CODENAME}.list -O /etc/apt/sources.list.d/playonlinux.list
+        HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
+        if [ -z '$HAS_PLAYONLINUX' ];then
+            $WGET http://deb.playonlinux.com/playonlinux_$DISTRO_CODENAME.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
         else
             echo 'PlayOnLinux 套件庫已經存在'
