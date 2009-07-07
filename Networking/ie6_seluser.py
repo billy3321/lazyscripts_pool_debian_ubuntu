@@ -38,7 +38,9 @@ def ie4linux_cmd(user_name):
 
 def sel_users():
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
+    USERS_HOME_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 6').split('\n')
     USERS_LIST.pop(0)
+    USERS_HOME_LIST.pop(0)
 
     dlg_bts={}
     dlg = gtk.MessageDialog \
@@ -59,6 +61,7 @@ def sel_users():
      if dlg_bts[user_name_box].get_active():
       print "正在為" + user_name + "安裝Internet Explorer..."
       ie4linux_cmd(user_name)
+      os.system("chown "+user_name+"."+user_name+" +R "+USERS_HOME_LIST))
 #      ie4linux_cmd = "su -c \"im-switch -s %s\" %s" % (selected_cin, user_name)
 #      os.system(ie4linux_cmd)
 
