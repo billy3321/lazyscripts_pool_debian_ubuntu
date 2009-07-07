@@ -121,12 +121,9 @@ case $DISTRO_ID in
         wget -q http://apt.wxwidgets.org/key.asc -O- | sudo apt-key add -
     fi
     if [ ! -e /etc/apt/sources.list.d/playonlinux.list ] ; then
-        HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
-        if [ -z '$HAS_PLAYONLINUX' ];then
+            echo "PlayOnLinux 套件不存在...新增中"
             wget http://deb.playonlinux.com/playonlinux_squeeze.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
-        else
-            echo 'PlayOnLinux 套件庫已經存在'
         fi
     else
         echo 'PlayOnLinux 套件庫已經存在'
