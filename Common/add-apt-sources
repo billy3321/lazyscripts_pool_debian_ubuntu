@@ -124,7 +124,6 @@ case $DISTRO_ID in
             echo "PlayOnLinux 套件不存在...新增中"
             wget http://deb.playonlinux.com/playonlinux_squeeze.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
-        fi
     else
         echo 'PlayOnLinux 套件庫已經存在'
     fi
