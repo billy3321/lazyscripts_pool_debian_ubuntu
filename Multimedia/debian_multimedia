@@ -15,6 +15,7 @@
 # @debian ''
 # @platform 'i386 AMD64'
 # @child 'Common/add-apt-sources'
+# @hide
 
 . add-apt-sources
 add_debian_multimedia
