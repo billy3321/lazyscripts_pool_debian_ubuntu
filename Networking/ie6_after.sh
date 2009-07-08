@@ -67,6 +67,8 @@ if [ 0 -eq ${HAS_HOME_BIN_PATH} ];then
     echo "export PATH=\${PATH}:${CORRECT_HOME}/bin" >> ${CORRECT_HOME}/.bashrc
 fi
 
+chown ${CORRECT_USER}.${CORRECT_USER} +R ${CORRECT_HOME}
+
 su -c "cp \"/usr/share/applications/msie6.desktop\" \"$CORRECT_DESKTOP_DIR\" " $CORRECT_USER
 su -c "mkdir -p \"$CORRECT_HOME/.wine/drive_c/windows/fonts/\" " $CORRECT_USER
 su -c "mkdir -p \"$CORRECT_HOME/.ies4linux/ie6/drive_c/windows/fonts/\" " $CORRECT_USER
