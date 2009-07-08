@@ -62,6 +62,11 @@ if [ ! -d $CORRECT_DESKTOP_DIR ];then
  chown -R ${CORRECT_USER}.${CORRECT_USER} ${CORRECT_DESKTOP_DIR}
 fi
 
+HAS_HOME_BIN_PATH=`echo ${PATH} | grep -c "${CORRECT_HOME}/bin"`
+if [ 0 -eq ${HAS_HOME_BIN_PATH} ];then
+    echo "export PATH=\${PATH}:${CORRECT_HOME}/bin" >> ${CORRECT_HOME}/.bashrc
+fi
+
 su -c "cp \"/usr/share/applications/msie6.desktop\" \"$CORRECT_DESKTOP_DIR\" " $CORRECT_USER
 su -c "mkdir -p \"$CORRECT_HOME/.wine/drive_c/windows/fonts/\" " $CORRECT_USER
 su -c "mkdir -p \"$CORRECT_HOME/.ies4linux/ie6/drive_c/windows/fonts/\" " $CORRECT_USER
