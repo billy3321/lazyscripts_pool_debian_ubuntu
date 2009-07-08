@@ -1,0 +1,33 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009 王綱民 Kang-Min Wang ( Aminzai ) <lagunawang -AT- gmail.com>
+# Last Modified : 2009/05/29
+# @name_enUS 'Add Debian Multimedia Package Liberary' 
+# @name_zhTW '加入 Debian Multimedia 套件庫並安裝 W32Codecs(hide)'
+# @desc_enUS ''
+# @desc_zhTW '官方因為某些法規及專利問題，沒有支援許多常用的影音格式。
+#             於是有人成立非官方的 Debian Multimedia 套件庫，提供多種影音 Codecs，一般使用者幾乎都會需要用到這個非官方套件庫，建議考慮安裝。'
+# @warn_zhTW '因為各地專利及著作權法規的不同，此套件庫內的套件並非全部都保證可以合法使用，請使用者自行斟酌。'
+# @category 'Multimedia'
+# @maintaner '王綱民 Kang-Min Wang ( Aminzai ) <lagunawang -AT- gmail.com>'
+# @author '王綱民 Kang-Min Wang ( Aminzai ) <lagunawang -AT- gmail.com>'
+# @license 'GPL'
+# @debian ''
+# @platform 'i386 AMD64'
+# @child 'Common/add-apt-sources'
+# @hide
+
+. add-apt-sources
+add_debian_multimedia
+
+case "$PLAT_NAME" in
+i386)
+apt-get -y --force-yes install non-free-codecs w32codecs
+;;
+x86_64)
+apt-get -y --force-yes install non-free-codecs w64codecs
+;;
+*)
+echo "抱歉，Lazyscripts目前不支援 $PLAT_NAME 硬體架構。"
+;;
+esac

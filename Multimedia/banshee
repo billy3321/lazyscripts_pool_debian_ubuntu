@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
+#
+# @name_enUS 'Install Banshee'
+# @name_zhTW '安裝 Banshee' 
+# @desc_enUS 'Banshee is packaged for many Linux distributions,and is even the default media player for several.'
+# @desc_zhTW 'Banshee 是一個用於Linux的開放原碼音樂播放器，也可以與您的GPhone、iPod等其他裝置做同步。'
+# @warn_enUS ''
+# @warn_zhTW ''
+# @category 'Multimedia'
+# @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @license 'GPL'
+# @debian
+# @ubuntu 
+# @platform 'i386 amd64'
+
+echo "安裝 Banshee"
+
+apt-get install -y --force-yes banshee 

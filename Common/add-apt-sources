@@ -8,18 +8,40 @@
 
 # @hide
 
-
+# MediBuntu
 function add_medibuntu() {
-HAS_MEDIBUNTU=`grep '^deb http://packages.medibuntu.org/' /etc/apt/sources.list`
-if [ -z "$HAS_MEDIBUNTU" ]; then
-# FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
-    echo -e "#the source of Medibuntu (Lazyscripts 新增)\ndeb http://packages.medibuntu.org/ $DISTRO_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
-    wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add - && sudo apt-get update
+if [ -e /etc/apt/sources.list.d/medibuntu.list ];then
+    CHECK_MEDIBUNTU=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/medibuntu.list`
+    if [ -z "$CHECK_MEDIBUNTU" ];then
+        $WGET http://www.medibuntu.org/sources.list.d/${DISTRO_CODENAME}.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        apt-get -q update
+        apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
+        apt-get -q update
+    else
+        echo "Medibuntu 套件庫已經存在"
+    fi
 else
-    echo 'Medibuntu 套件庫已經存在'
+        $WGET http://www.medibuntu.org/sources.list.d/${DISTRO_CODENAME}.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+        apt-get -q update
+        apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
+        apt-get -q update
 fi
 }
 
+#Debian Multimedia
+function add_debian_multimedia(){
+HAS_DEBIAN_MULTIMEDIA=`grep '^deb http://www.debian-multimedia.org' /etc/apt/sources.list`
+if [ -z "$HAS_DEBIAN_MULTIMEDIA" ]; then
+    echo -e "\n#the source of Debian Multimedia (Lazyscripts 新增)\ndeb http://www.debian-multimedia.org stable main" | sudo tee -a /etc/apt/sources.list
+    $WGET http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
+    dpkg -i ./debian-multimedia-keyring_2008.10.16_all.deb
+    apt-get update
+else
+    echo "Debian Multimedia 套件庫已經存在"
+fi
+}
+
+#Ubuntu Tweak
 function add_ubuntu_tweak() {
 HAS_UBUNTU_TWEAK=`grep '^deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list`
 if [ -z "$HAS_UBUNTU_TWEAK" ]; then
@@ -28,13 +50,16 @@ if [ -z "$HAS_UBUNTU_TWEAK" ]; then
     else
         echo -e "\n#the source of Ubuntu Tweak (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu hardy main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main" | sudo tee -a /etc/apt/sources.list
     fi  
-#    wget -q http://ppa.launchpad.net/tualatrix/??-key.gpg -O- | sudo apt-key add - 
+    #    PPA has no GPG. ref:http://anotherugly.wordpress.com/my-ubuntu-gutsy-64-bit-sourceslist/
+    #    wget -q http://ppa.launchpad.net/tualatrix/??-key.gpg -O- | sudo apt-key add - 
+# solution: http://hanix.twbbs.org/hn/2009-02-25
     sudo apt-get update
 else
    echo 'Ubuntu Tweak 套件庫已經存在'
 fi
 }
 
+#Ubuntu Fonts
 function add_ubuntu_fonts() {
  HAS_UBUNTU_FONTS=`grep '^deb http://ppa.launchpad.net/fonts/ubuntu' /etc/apt/sources.list`
   if [ -z "$HAS_UBUNTU_FONTS" ]; then
@@ -51,6 +76,7 @@ function add_ubuntu_fonts() {
 
 }
 
+#Swiftfox
 function add_swiftfox() {
 HAS_SWIFTFOX=`grep '^deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list`
 if [ -z "$HAS_SWIFTFOX" ]; then
@@ -61,6 +87,7 @@ if [ -z "$HAS_SWIFTFOX" ]; then
 fi
 }
 
+#WineHQ
 function add_winehq() {
 HAS_WINEHQ=`grep '^deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list`
 if [ -z "$HAS_WINEHQ" ]; then
@@ -72,26 +99,32 @@ else
 fi
 }
 
+#PlayOnLinux
 function add_playonlinux() {
 case $DISTRO_ID in 
     "Ubuntu")
-    HAS_PLAYONLINUX=`grep '^deb http://deb.mulx.net/' /etc/apt/sources.list`
-    if [ -z "$HAS_PLAYONLINUX" ]; then
-     
-        
-        echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://deb.mulx.net/ $DISTRO_CODENAME main" | sudo tee -a /etc/apt/sources.list
-        wget -q http://deb.mulx.net/pol.gpg -O- | sudo apt-key add - && sudo apt-get update
+    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ]; then
+        HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
+        if [ -z "$HAS_PLAYONLINUX" ];then
+            wget http://deb.playonlinux.com/playonlinux_$DISTRO_CODENAME.list -O /etc/apt/sources.list.d/playonlinux.list
+            apt-get update
+        else
+            echo 'PlayOnLinux 套件庫已經存在'
+        fi
     else 
         echo 'PlayOnLinux 套件庫已經存在'
     fi
     ;;
     "Debian")
-    HAS_PLAYONLINUX=`grep '^deb http://deb.mulx.net/' /etc/apt/sources.list`
-    if [ -z "$HAS_PLAYONLINUX" ]; then
-        echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://deb.mulx.net/ $DISTRO_CODENAME main" | sudo tee -a /etc/apt/sources.list
-        # echo -e "#the source of PlayOnLinux (Lazyscripts 新增)\ndeb http://apt.wxwidgets.org/ etch-wx main" | sudo tee -a /etc/apt/sources.list
-        wget -q http://deb.mulx.net/pol.gpg -O- | sudo apt-key add - && sudo apt-get update
-        # sudo apt-get update
+    HAS_WXWIDGETS=`grep '^deb http://apt.wxwidgets.org/' /etc/apt/sources.list`
+    if [ -z '$HAS_WXWIDGETS' ] ; then #check Wxwidget.org source repo
+        echo -e "\n#the source of WXwidget.org (Lazyscripts 新增) \ndeb http://apt.wxwidgets.org/ etch-wx main \n" | sudo tee -a /etc/apt/sources.list
+        wget -q http://apt.wxwidgets.org/key.asc -O- | sudo apt-key add -
+    fi
+    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ] ; then
+            echo "PlayOnLinux 套件不存在...新增中"
+            wget http://deb.playonlinux.com/playonlinux_squeeze.list -O /etc/apt/sources.list.d/playonlinux.list
+            apt-get update
     else
         echo 'PlayOnLinux 套件庫已經存在'
     fi
@@ -103,7 +136,7 @@ esac
 
 }
 
-
+#Wicd
 function add_wicd() {
  HAS_WICD=`grep '^deb http://apt.wicd.net' /etc/apt/sources.list`
   if [ -z "$HAS_WICD" ]; then
@@ -121,7 +154,7 @@ function add_wicd() {
 
 }
 
-
+#VirtualBox
 function add_virtualbox() {
  HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
   if [ -z "$HAS_VIRTUALBOX" ]; then
