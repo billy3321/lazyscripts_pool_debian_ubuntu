@@ -28,7 +28,19 @@ elif [ "$DISTRO_ID" == "Ubuntu" ]; then
     extra_packages="non-free-codecs"
 fi
 
-./add_repos.py "$uri" "$DISTRO_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
+./add_repos.py "$uri" "$DISTRO_CODENAME" "$comps" "多媒體套件庫 (Lazyscripts 新增)"
+
+case "$DISTRO_ID" in
+    "Ubuntu")
+    apt-get -q update
+    apt-get --yes -q --allow-unauthenticated install medibuntu-keyring
+    ;;
+    "Debian")
+    $WGET http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.debian
+    dpkg -i debian-multimedia-keyring_2008.10.16_all.deb
+esac
+
+
 
 apt-get update
 
@@ -40,6 +52,6 @@ x86_64)
     apt-get -y --force-yes install w64codecs $extra_packages
 ;;
 *)
-    echo "抱歉，Lazybuntu目前不支援 $PLAT_NAME 硬體架構。"
+    echo "抱歉，Lazyscripts目前不支援 $PLAT_NAME 硬體架構。"
 ;;
 esac

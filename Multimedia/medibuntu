@@ -8,7 +8,7 @@
 # Please run as root.
 #
 # @name_enUS '' 
-# @name_zhTW '加入 Medibuntu 套件庫並安裝 Win32 Codecs'
+# @name_zhTW '加入 Medibuntu 套件庫並安裝 Win32 Codecs(hide)'
 # @desc_enUS ''
 # @desc_zhTW 'Ubuntu 官方因為某些法規及專利問題，沒有支援許多常用的影音格式。
 #             於是有人成立非官方的 Medibuntu 套件庫，提供多種影音 Codecs，一般使用者幾乎都會需要用到這個非官方套件庫，建議考慮安裝。'
