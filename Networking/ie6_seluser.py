@@ -38,7 +38,9 @@ def ie4linux_cmd(user_name):
 
 def sel_users():
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
+    USERS_HOME_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 6').split('\n')
     USERS_LIST.pop(0)
+    USERS_HOME_LIST.pop(0)
 
     dlg_bts={}
     dlg = gtk.MessageDialog \

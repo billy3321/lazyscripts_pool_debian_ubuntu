@@ -45,7 +45,7 @@ cat > "/usr/share/applications/msie6.desktop" << EOF
 [Desktop Entry]
 Version=1.0
 Icon=/usr/share/pixmaps/msie6.png
-Exec=ie6
+Exec=${CORRECT_HOME}/bin/ie6
 Name=Internet Explorer 6.0
 GenericName=Web Browser
 GenericName[zh_TW]=網路瀏覽器
@@ -61,6 +61,13 @@ if [ ! -d $CORRECT_DESKTOP_DIR ];then
  mkdir -p $CORRECT_DESKTOP_DIR
  chown -R ${CORRECT_USER}.${CORRECT_USER} ${CORRECT_DESKTOP_DIR}
 fi
+
+#HAS_HOME_BIN_PATH=`echo ${PATH} | grep -c "${CORRECT_HOME}/bin"`
+#if [ 0 -eq ${HAS_HOME_BIN_PATH} ];then
+#    echo "export PATH=\${PATH}:${CORRECT_HOME}/bin" >> ${CORRECT_HOME}/.bashrc
+#fi
+
+chown ${CORRECT_USER}.${CORRECT_USER} -R ${CORRECT_HOME}
 
 su -c "cp \"/usr/share/applications/msie6.desktop\" \"$CORRECT_DESKTOP_DIR\" " $CORRECT_USER
 su -c "mkdir -p \"$CORRECT_HOME/.wine/drive_c/windows/fonts/\" " $CORRECT_USER

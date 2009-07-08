@@ -103,7 +103,7 @@ fi
 function add_playonlinux() {
 case $DISTRO_ID in 
     "Ubuntu")
-    if [ -e /etc/apt/sources.list.d/playonlinux.list ]; then
+    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ]; then
         HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
         if [ -z "$HAS_PLAYONLINUX" ];then
             wget http://deb.playonlinux.com/playonlinux_$DISTRO_CODENAME.list -O /etc/apt/sources.list.d/playonlinux.list
@@ -117,17 +117,14 @@ case $DISTRO_ID in
     ;;
     "Debian")
     HAS_WXWIDGETS=`grep '^deb http://apt.wxwidgets.org/' /etc/apt/sources.list`
-    if [ -z "$HAS_WXWIDGETS" ] ; then #check Wxwidget.org source repo
+    if [ -z '$HAS_WXWIDGETS' ] ; then #check Wxwidget.org source repo
         echo -e "\n#the source of WXwidget.org (Lazyscripts 新增) \ndeb http://apt.wxwidgets.org/ etch-wx main \n" | sudo tee -a /etc/apt/sources.list
+        wget -q http://apt.wxwidgets.org/key.asc -O- | sudo apt-key add -
     fi
-    if [ -e /et/apt/sources.list.d/playonlinux.list ] ; then
-        HAS_PLAYONLINUX=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/playonlinux.list`
-        if [ -z "$HAS_PLAYONLINUX" ];then
-            $WGET http://deb.playonlinux.com/playonlinux_${DISTRO_CODENAME}.list -O /etc/apt/sources.list.d/playonlinux.list
+    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ] ; then
+            echo "PlayOnLinux 套件不存在...新增中"
+            wget http://deb.playonlinux.com/playonlinux_squeeze.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
-        else
-            echo 'PlayOnLinux 套件庫已經存在'
-        fi
     else
         echo 'PlayOnLinux 套件庫已經存在'
     fi
