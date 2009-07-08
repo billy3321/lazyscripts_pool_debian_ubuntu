@@ -52,6 +52,7 @@ if [ -z "$HAS_UBUNTU_TWEAK" ]; then
     fi  
     #    PPA has no GPG. ref:http://anotherugly.wordpress.com/my-ubuntu-gutsy-64-bit-sourceslist/
     #    wget -q http://ppa.launchpad.net/tualatrix/??-key.gpg -O- | sudo apt-key add - 
+# solution: http://hanix.twbbs.org/hn/2009-02-25
     sudo apt-get update
 else
    echo 'Ubuntu Tweak 套件庫已經存在'
