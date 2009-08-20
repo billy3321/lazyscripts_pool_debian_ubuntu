@@ -58,7 +58,7 @@ StartupNotify=true
 EOF
 
 chmod a+x /usr/bin/songbird
-chown -R root.root /opt/Songbir/
+chown -R root.root /opt/Songbird/
 chmod -R a+rx /opt/Songbird/
 
 #END
