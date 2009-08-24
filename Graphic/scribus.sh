@@ -16,6 +16,6 @@
 # @ubuntu 
 # @platform 'i386'
 
-apt-get -y --force-yes install scribus
+apt-get -y --force-yes install scribus scribus-template
 
 #END

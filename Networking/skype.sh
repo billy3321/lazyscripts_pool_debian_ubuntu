@@ -54,7 +54,7 @@ case "$DISTRO_ID" in
         getlibs --yes /usr/bin/skype
         ;;
         *)
-        echo "抱歉，lazyscripts並不支援安裝skype在 $DISCRO_CODENAME 上面....將會嘗試安裝但不保證成功"
+        echo "抱歉，lazyscripts並不支援安裝skype在 $DISTRO_CODENAME 上面....將會嘗試安裝但不保證成功"
         apt-get -y --force-yes install ia32-libs lib32asound2
         ./download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
         ./download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'

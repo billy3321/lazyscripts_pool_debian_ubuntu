@@ -53,12 +53,12 @@ Exec=/usr/bin/songbird
 Icon=/opt/Songbird/songbird.png
 Terminal=false
 Type=Application
-Categories=Development;
+Categories=AudioVideo;Player;
 StartupNotify=true
 EOF
 
 chmod a+x /usr/bin/songbird
-chown -R root.root /opt/Songbir/
+chown -R root.root /opt/Songbird/
 chmod -R a+rx /opt/Songbird/
 
 #END

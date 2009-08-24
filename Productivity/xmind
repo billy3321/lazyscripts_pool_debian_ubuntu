@@ -1,0 +1,32 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
+#
+# @name_enUS 'Install XMind 3.0.2'
+# @name_zhTW '安裝 XMind 3.0.2' 
+# @desc_enUS 'XMind, is an open source brainstorming and mind mapping software tool developed by XMind Ltd.'
+# @desc_zhTW 'XMind 是一個利用Eclipse為基底的心智圖工具'
+# @warn_enUS ''
+# @warn_zhTW ''
+# @category 'Productivity'
+# @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @license 'GPL'
+# @debian
+# @ubuntu 
+# @platform 'i386 amd64'
+# @child 'Common/download-install Common/debinstall.py'
+
+echo "安裝 XMind"
+
+case $PLAT_NAME in
+    "i386")
+    ./download-install 'xmind' 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_i386.deb'
+    ;;
+    "x86_64")
+    ./download-install 'xmind' 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_amd64.deb'
+    ;;
+    *)
+        echo "Lazyscripts not support $PLAT_NAME"
+esac
+
