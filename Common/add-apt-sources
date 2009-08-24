@@ -158,7 +158,7 @@ function add_wicd() {
 function add_virtualbox() {
  HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
   if [ -z "$HAS_VIRTUALBOX" ]; then
-      if [ $DISTRO_CODENAME == "jaunty" ]; then
+      if [ $DISTRO_CODENAME = "jaunty" ]; then
           echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian intrepid non-free\n" | sudo tee -a /etc/apt/sources.list
       else
           echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRO_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list
@@ -173,7 +173,7 @@ function add_virtualbox() {
 #Google Repository
 function add_google() {
 if [ ! -f /etc/apt/sources.list.d/google-repo.list ];then
-    if [ $DISTRO_ID == "Ubuntu" ] || [ $DISTOR_ID == "Debian" ]; then
+    if [ $DISTRO_ID = "Ubuntu" ] || [ $DISTOR_ID = "Debian" ]; then
         echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
         sudo apt-get update
     else
