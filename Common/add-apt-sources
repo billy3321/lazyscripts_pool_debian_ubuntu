@@ -174,7 +174,7 @@ function add_virtualbox() {
 function add_google() {
 if [ ! -f /etc/apt/sources.list.d/google-repo.list ];then
     if [ $DISTRO_ID = "Ubuntu" ] || [ $DISTRO_ID = "Debian" ]; then
-        echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
+        echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free main\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
         sudo apt-get update
     else
