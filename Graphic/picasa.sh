@@ -14,17 +14,11 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
-# @child 'Common/download-install Common/debinstall.py'
+# @child 'Common/add-apt-sources'
+
+source add-apt-sources
+add_google
 
 echo "正在下載並安裝Picasa..."
-case "$PLAT_NAME" in
-'i386')
-./download-install "picasa" http://dl.google.com/linux/deb/pool/non-free/p/picasa/picasa_3.0-current_i386.deb
-;;
-'x86_64')
-./download-install "picasa" http://dl.google.com/linux/deb/pool/non-free/p/picasa/picasa_3.0-current_amd64.deb 
-;;
-*)
-echo "抱歉，目前Picasa並不支援 $PLAT_NAME 硬體架構，取消安裝。"
-;;
-esac
+
+apt-get -y --force-yes install picasa
