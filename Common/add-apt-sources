@@ -10,7 +10,7 @@
 
 # MediBuntu
 function add_medibuntu() {
-if [ -e /etc/apt/sources.list.d/medibuntu.list ];then
+if [ -f /etc/apt/sources.list.d/medibuntu.list ];then
     CHECK_MEDIBUNTU=`grep "$DISTRO_CODENAME" /etc/apt/sources.list.d/medibuntu.list`
     if [ -z "$CHECK_MEDIBUNTU" ];then
         $WGET http://www.medibuntu.org/sources.list.d/${DISTRO_CODENAME}.list --output-document=/etc/apt/sources.list.d/medibuntu.list
@@ -36,7 +36,7 @@ if [ -z "$HAS_DEBIAN_MULTIMEDIA" ]; then
     $WGET http://www.debian-multimedia.org/pool/main/d/debian-multimedia-keyring/debian-multimedia-keyring_2008.10.16_all.deb
     dpkg -i ./debian-multimedia-keyring_2008.10.16_all.deb
     apt-get update
-else
+
     echo "Debian Multimedia 套件庫已經存在"
 fi
 }
@@ -103,7 +103,7 @@ fi
 function add_playonlinux() {
 case $DISTRO_ID in 
     "Ubuntu")
-    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ]; then
+    if [ ! -f /etc/apt/sources.list.d/playonlinux.list ]; then
         HAS_PLAYONLINUX=`grep '$DISTRO_CODENAME' /etc/apt/sources.list.d/playonlinux.list`
         if [ -z "$HAS_PLAYONLINUX" ];then
             wget http://deb.playonlinux.com/playonlinux_$DISTRO_CODENAME.list -O /etc/apt/sources.list.d/playonlinux.list
@@ -121,7 +121,7 @@ case $DISTRO_ID in
         echo -e "\n#the source of WXwidget.org (Lazyscripts 新增) \ndeb http://apt.wxwidgets.org/ etch-wx main \n" | sudo tee -a /etc/apt/sources.list
         wget -q http://apt.wxwidgets.org/key.asc -O- | sudo apt-key add -
     fi
-    if [ ! -e /etc/apt/sources.list.d/playonlinux.list ] ; then
+    if [ ! -f /etc/apt/sources.list.d/playonlinux.list ] ; then
             echo "PlayOnLinux 套件不存在...新增中"
             wget http://deb.playonlinux.com/playonlinux_squeeze.list -O /etc/apt/sources.list.d/playonlinux.list
             apt-get update
@@ -158,7 +158,7 @@ function add_wicd() {
 function add_virtualbox() {
  HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
   if [ -z "$HAS_VIRTUALBOX" ]; then
-      if [ $DISTRO_CODENAME == "jaunty" ]; then
+      if [ $DISTRO_CODENAME = "jaunty" ]; then
           echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian intrepid non-free\n" | sudo tee -a /etc/apt/sources.list
       else
           echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRO_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list
@@ -171,13 +171,13 @@ function add_virtualbox() {
 }
 
 #Google Repository
-function add_google_repo() {
-if [ -e /etc/apt/sources.list.d/google-repo.list ];then
-    if [ $DISTRO_ID == "Ubuntu" || $DISTOR_ID == "Debian" ]; then
+function add_google() {
+if [ ! -f /etc/apt/sources.list.d/google-repo.list ];then
+    if [ $DISTRO_ID = "Ubuntu" ] || [ $DISTRO_ID = "Debian" ]; then
         echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
         sudo apt-get update
     else
-        echo -e "Lazyscripts not support your $PLAT_NAME";
+        echo -e "Lazyscripts not support your $DISTRO_ID";
     fi
 else
     echo 'Google Repository 套件庫已經存在'
