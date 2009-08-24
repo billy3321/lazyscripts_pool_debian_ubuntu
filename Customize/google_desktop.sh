@@ -17,7 +17,7 @@
 # @child 'Common/add-apt-sources'
 
 source add-apt-sources
-add_google_repo
+add_google
 
 echo "正在下載並安裝Google Desktop..."
 case "$PLAT_NAME" in
