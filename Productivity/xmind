@@ -15,15 +15,16 @@
 # @debian
 # @ubuntu 
 # @platform 'i386 amd64'
+# @child 'Common/download-install Common/debinstall.py'
 
 echo "安裝 XMind"
 
 case $PLAT_NAME in
     "i386")
-        $WGET 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_i386.deb'
+    ./download-install 'xmind' 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_i386.deb'
     ;;
     "x86_64")
-        $WGET 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_amd64.deb'
+    ./download-install 'xmind' 'http://nchc.dl.sourceforge.net/sourceforge/xmind3/xmind-linux-3.0.2.200903221757_amd64.deb'
     ;;
     *)
         echo "Lazyscripts not support $PLAT_NAME"
