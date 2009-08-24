@@ -173,7 +173,7 @@ function add_virtualbox() {
 #Google Repository
 function add_google() {
 if [ ! -f /etc/apt/sources.list.d/google-repo.list ];then
-    if [ $DISTRO_ID == "Ubuntu" || $DISTOR_ID == "Debian" ]; then
+    if [ $DISTRO_ID == "Ubuntu" ] || [ $DISTOR_ID == "Debian" ]; then
         echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
         sudo apt-get update
     else
