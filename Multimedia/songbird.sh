@@ -53,7 +53,7 @@ Exec=/usr/bin/songbird
 Icon=/opt/Songbird/songbird.png
 Terminal=false
 Type=Application
-Categories=Development;
+Categories=AudioVideo;Player;
 StartupNotify=true
 EOF
 
