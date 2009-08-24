@@ -22,6 +22,6 @@ add_google
 
 echo "正在安裝Google Chrome..."
 
-apt-get -y --force-yes google-chrome-unstable
+apt-get -y --force-yes google-chrome
 
 
