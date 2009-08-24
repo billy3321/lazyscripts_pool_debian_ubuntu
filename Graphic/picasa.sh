@@ -14,6 +14,7 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
+# @child 'Common/download-install Common/debinstall.py'
 
 echo "正在下載並安裝Picasa..."
 case "$PLAT_NAME" in
