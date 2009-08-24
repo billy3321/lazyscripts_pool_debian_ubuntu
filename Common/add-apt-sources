@@ -185,5 +185,21 @@ else
 fi
 }
 
+#WinFF
+function add_winff(){
+if [ ! -f /etc/apt/sources.list.d/winff.list ]; then
+    if [ $DISTRO_ID = "Ubuntu" ]; then
+        wget --quiet --output-document=- "http://winff.org/ubuntu/AAFE086A.gpg" | sudo apt-key add - 
+        echo "deb http://winff.org/ubuntu jaunty universe" | sudo tee /etc/apt/sources.list.d/winff.list
+        sudo apt-get update
+    elif [ $DISTRO_ID = "Debian" ]; then
+        wget --quiet --output-document=- "http://winff.org/ubuntu/AAFE086A.gpg" | sudo apt-key add -
+        echo "deb http://winff.org/ubuntu hardy universe" | sudo tee /etc/apt/sources.list.d/winff.list
+        sudo apt-get update
+    fi
+else
+    echo "WinFF 套件庫已經存在"
+fi
+}
 
 #END
