@@ -13,11 +13,11 @@
 # Please run as root.
 #
 # @name_enUS '' 
-# @name_zhTW '安裝DPG Converter影像轉檔程式'
+# @name_zhTW '安裝 DPG Converter 影像轉檔程式'
 # @desc_enUS 'Download and install dpgconverter. dpgconvert is a video formate
 #             converter, whith do converting the video formate to DPG, which
 #             can watch in NDL.'
-# @desc_zhTW 'DPG Converter影像轉檔程式可將各種影像格式轉換為NDL可播放的DPG影像格式。'
+# @desc_zhTW 'DPG Converter 影像轉檔程式可將各種影像格式轉換為 NDL 可播放的 DPG 影像格式。'
 # @category 'Multimedia'
 # @maintaner '2008 陳信屹 Hsin Yi Chen (hychen) <ossug.hychen@gmail.com>'
 # @author '2008 陳信屹 Hsin Yi Chen (hychen) <ossug.hychen@gmail.com>'

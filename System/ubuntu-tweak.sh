@@ -7,9 +7,10 @@
 # Please run as root.
 #
 # @name_enUS 'Install Ubuntu-Tweak'
-# @name_zhTW '安裝Ubuntu Tweak校調工具'
+# @name_zhTW '安裝 Ubuntu Tweak 校調工具'
 # @desc_enUS 'Ubuntu Tweak is a config tool for ubuntu and good for use.'
-# @desc_zhTW 'Ubuntu Tweak是一款快速好用的挍調工具，若您在往後的使用中需要特定軟體或是調整您的作業系統，Ubuntu Tweak可以提供您一個快速方便的設定界面。'
+# @desc_zhTW 'Ubuntu Tweak 是一款快速好用的挍調工具，若您在往後的使用中需要特定軟體或是調整您的作業系統，
+#             Ubuntu Tweak 可以提供您一個快速方便的設定界面。'
 # @category 'System'
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <billy3321 -AT- gmail.com>'
