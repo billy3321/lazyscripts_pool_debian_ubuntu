@@ -3,7 +3,7 @@
 
 
 # @name_enUS 'Install PlayOnLinux'
-# @name_zhTW '安裝PlayOnLinux - 幫助您快速安裝 Windows 原生程式'
+# @name_zhTW '安裝 PlayOnLinux - 幫助您快速安裝 Windows 原生程式'
 # @desc_enUS ''
 # @desc_zhTW 'PlayOnLinux 是一款快速好用的 Wine 前端界面，可以幫助您無痛在Linux上面安裝各式Windows原生軟體。'
 # @category 'Customize'
