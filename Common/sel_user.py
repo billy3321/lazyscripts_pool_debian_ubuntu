@@ -27,7 +27,7 @@ def get_args():
 	      elif o == '--command':
 	        command = a
 	      
-	  except getopt.GetoptError:
+	except getopt.GetoptError:
 	    pass
 
 def sel_users():
