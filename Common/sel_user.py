@@ -5,11 +5,10 @@
 # Install Microsoft Internet Explorer for one or more users.
 # Released under GNU General Public License
 #
-# @category 'Networking'
+# @category 'Common'
 # @maintaner '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @author '林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>'
 # @license 'GPL'
-# @parent 'Networking/ie6'
 # @hide
 
 import os
