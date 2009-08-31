@@ -19,6 +19,9 @@ import gtk
 import commands
 import getopt
 
+message=None
+command=None
+
 def get_args():
     try:
         opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
@@ -114,8 +117,6 @@ def user_scope ():
 
 def main():
         
-    message=None
-    command=None
     get_args()
     user_scope()
 
