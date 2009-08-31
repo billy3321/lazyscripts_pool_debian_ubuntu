@@ -11,6 +11,7 @@
 # @license 'GPL'
 # @hide
 
+import sys
 import os
 import pygtk
 pygtk.require('2.0')
