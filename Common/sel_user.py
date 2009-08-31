@@ -19,6 +19,10 @@ import commands
 import getopt
 
 def get_args():
+    message=None
+    command=None
+    global message
+    global command
 	try:
 	    opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
 	    for o, a in opts:
@@ -26,6 +30,7 @@ def get_args():
 	        message = a
 	      elif o == '--command':
 	        command = a
+
 	      
 	except getopt.GetoptError:
 	    pass
@@ -57,7 +62,7 @@ def sel_users():
        print "正在為" + user_name + message + "..." 
        os.system("su -c " + user_name + " " + command)
       else:
-       print user_name 
+       print user_name ,
 
 
 def user_scope ():
