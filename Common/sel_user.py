@@ -20,10 +20,6 @@ import commands
 import getopt
 
 def get_args():
-    message=None
-    command=None
-    global message
-    global command
     try:
         opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
         for o, a in opts:
@@ -117,6 +113,9 @@ def user_scope ():
        sel_users()
 
 def main():
+        
+    message=None
+    command=None
     get_args()
     user_scope()
 
