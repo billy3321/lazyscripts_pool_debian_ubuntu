@@ -11,28 +11,19 @@
 # @license 'GPL'
 # @hide
 
-import sys
 import os
 import pygtk
 pygtk.require('2.0')
 import gtk
 import commands
-import getopt
+from optparse import OptionParser 
+parser = OptionParser()
+   
+parser.add_option("-m", "--message", "--msg", dest="message", default=None, help="Message to show", metavar="MESSAGE")
+parser.add_option("-c", "--command", "--cmd", dest="command", default=None, help="Command to run", metavar="COMMAND")
+            
+(options, args) = parser.parse_args()
 
-message=None
-command=None
-
-try:
-    opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
-    for o, a in opts:
-      if o == '--message':
-        message = a
-      elif o == '--command':
-        command = a
-
-      
-except getopt.GetoptError:
-    pass
 
 def sel_users():
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
@@ -45,7 +36,7 @@ def sel_users():
         (None, gtk.DIALOG_MODAL,  \
         gtk.MESSAGE_QUESTION, \
         gtk.BUTTONS_OK)
-    dlg.set_markup ('<b>請選擇欲 %s 的使用者細項：</b>' % message )
+    dlg.set_markup ('<b>請選擇欲 %s 的使用者細項：</b>' % options.message )
     for user_name in USERS_LIST:
      user_name_box= user_name + "_box"
      dlg_bts[user_name_box]=gtk.CheckButton(user_name)
@@ -57,9 +48,9 @@ def sel_users():
     for user_name in USERS_LIST:
      user_name_box= user_name + "_box"
      if dlg_bts[user_name_box].get_active():
-      if command :
-       print "正在為" + user_name + message + "..." 
-       os.system("su -c " + user_name + " " + command)
+      if options.command :
+       print "正在為" + user_name + options.message + "..." 
+       os.system("su -c " + user_name + " " + options.command)
       else:
        print user_name ,
 
@@ -73,7 +64,7 @@ def user_scope ():
         (None, gtk.DIALOG_MODAL,  \
         gtk.MESSAGE_QUESTION, \
         gtk.BUTTONS_OK)
-    dlg.set_markup ('<b>請選擇您欲 %s 的使用者：</b>' % message)
+    dlg.set_markup ('<b>請選擇您欲 %s 的使用者：</b>' % options.message)
 
     currectuser_btn=gtk.RadioButton (None, '只套用到我自己')
     dlg.vbox.pack_start (currectuser_btn, False, True, 2)
@@ -97,16 +88,16 @@ def user_scope ():
 
     if currectuser:
       user_name =  os.getenv('REAL_USER')
-      if command:
-       print "正在為當前使用者" + message + "..."
-       os.system("su -c " + user_name + " " + command)
+      if options.command:
+       print "正在為當前使用者" , options.message , "..."
+       os.system("su -c " + user_name + " " + options.command)
       else: 
        print user_name
     elif alluser:
-      if command:
-       print "正在為所有使用者" + message + "..."
+      if options.command:
+       print "正在為所有使用者" , options.message , "..."
        for user_name in USERS_LIST:
-        os.system("su -c " + user_name + " " + command)
+        os.system("su -c " + user_name + " " + options.command)
       else:
        for user_name in USERS_LIST:
         print user_name,
