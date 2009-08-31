@@ -22,18 +22,17 @@ import getopt
 message=None
 command=None
 
-def get_args():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
-        for o, a in opts:
-          if o == '--message':
-            message = a
-          elif o == '--command':
-            command = a
+try:
+    opts, args = getopt.getopt(sys.argv[1:], '', ['message=', 'command='])
+    for o, a in opts:
+      if o == '--message':
+        message = a
+      elif o == '--command':
+        command = a
 
       
-    except getopt.GetoptError:
-        pass
+except getopt.GetoptError:
+    pass
 
 def sel_users():
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
@@ -117,7 +116,6 @@ def user_scope ():
 
 def main():
         
-    get_args()
     user_scope()
 
 
