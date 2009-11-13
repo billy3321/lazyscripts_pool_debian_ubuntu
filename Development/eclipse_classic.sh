@@ -28,10 +28,10 @@ cd ./temp/eclipse
 # Download Eclipse
 case $PLAT_NAME in
 		"i386")
-			$WGET 'http://eclipse.stu.edu.tw/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+            $WGET 'http://eclipse.stu.edu.tw/technology/epp/downloads/release/galileo/SR1/eclipse-java-galileo-SR1-linux-gtk.tar.gz'
 		;;
 		"x86_64")
-			$WGET 'http://ftp.cs.pu.edu.tw/pub/eclipse/eclipse/downloads/drops/R-3.4.2-200902111700/eclipse-SDK-3.4.2-linux-gtk.tar.gz'
+            $WGET 'http://eclipse.stu.edu.tw/technology/epp/downloads/release/galileo/SR1/eclipse-java-galileo-SR1-linux-gtk-x86_64.tar.gz'
 		;;
 		*)
 			echo "Sorry, Lazyscripts not support $PLAT_NAME."
