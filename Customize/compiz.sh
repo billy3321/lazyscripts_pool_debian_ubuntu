@@ -45,7 +45,7 @@ cat > $UserHome_autostart/fusion-icon.desktop <<EOF
 Type=Application
 Encoding=UTF-8
 Version=1.0
-Name=沒有名稱
+Name=Compiz
 Name[zh_TW]=Compiz
 Exec=fusion-icon
 X-GNOME-Autostart-enabled=true

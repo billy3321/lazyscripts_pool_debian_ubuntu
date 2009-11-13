@@ -38,7 +38,7 @@ case $DISTRO_ID in
 			esac
 		;;
 		"Ubuntu")
-			case $PALT_ID in
+			case $PALT_NAME in
 					"i386")
 						$WGET 'http://www.w3.org/Amaya/Distribution/amaya_wx-11.1-ubuntu1_i386.deb'
 					;;

@@ -23,7 +23,7 @@ add_virtualbox
 # Remove VirtualBox-ose if it's installed
 apt-get -y --force-yes remove virtualbox-ose
 
-# Install VirtualBox 2.2.0
+# Install VirtualBox 3.0
 apt-get -y --force-yes install virtualbox-3.0
 
 #END
