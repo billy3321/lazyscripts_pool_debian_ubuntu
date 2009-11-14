@@ -19,5 +19,5 @@ apt-get -y --force-yes install emesene
 
 wget http://emesene.org/trac/raw-attachment/wiki/Plugins/LastSaid.py
 
-mv LastSaid.py ${REAL_HOEM}/.config/emesene1.0/
+mv LastSaid.py ${REAL_HOME}/.config/emesene1.0/
 
