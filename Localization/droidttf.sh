@@ -15,12 +15,12 @@
 # @child 'Common/add-apt-sources'
 
 if [ "$DISTRIB_ID" == "Ubuntu" ]; then
-    if [ "$DISTRO_CODENAME" = 'karmic' ];then
-        sudo apt-get -y --force-yes install ttf-droid
-    else
-        . add-apt-sources
-        add_ubuntu_fonts
+    if [ "$DISTRO_CODENAME" == 'karmic' ];then
         sudo apt-get -y --force-yes install ttf-droid
     fi
-fi
 
+else
+    . add-apt-sources
+    add_ubuntu_fonts
+    sudo apt-get -y --force-yes install ttf-droid
+fi
