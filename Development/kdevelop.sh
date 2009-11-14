@@ -16,7 +16,7 @@
 # @ubuntu 
 # @platform 'i386 amd64'
 
-echo "Install Anjuta IDE"
+echo "Install KDevelop IDE"
 
 apt-get install -y --force-yes kdevelop 
 

@@ -15,5 +15,5 @@
 # @debian
 # @platform 'i386 amd64'
 
-apt-get -y --force-yes install sun-java-jdk
+apt-get -y --force-yes install sun-java6-jdk
 

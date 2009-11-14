@@ -28,10 +28,10 @@ cd ./temp/songbird/
 
 case $PLAT_NAME in
 	"i386")
-		$WGET 'http://download.songbirdnest.com/installer/linux/i686/Songbird_1.1.2-1042_linux-i686.tar.gz'
+        $WGET 'http://download.songbirdnest.com/installer/linux/i686/Songbird_1.2.0-1146_linux-i686.tar.gz'
 	;;
 	"x86_64")
-		$WGET 'http://download.songbirdnest.com/installer/linux/x86_64/Songbird_1.1.2-1042_linux-x86_64.tar.gz'
+        $WGET 'http://download.songbirdnest.com/installer/linux/i686/Songbird_1.2.0-1146_linux-i686.tar.gz'
 	;;
 	*)
 		echo "Sorry, Lazyscripts not support $PLAT_NAME"
