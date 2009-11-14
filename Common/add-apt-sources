@@ -63,9 +63,9 @@ fi
 function add_ubuntu_fonts() {
  HAS_UBUNTU_FONTS=`grep '^deb http://ppa.launchpad.net/fonts/ubuntu' /etc/apt/sources.list`
   if [ -z "$HAS_UBUNTU_FONTS" ]; then
-    if [ "$DISTRO_ID" = "Ubuntu" ]; then
+    if [ "$DISTRO_ID" == "Ubuntu" ]; then
       echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu $DISTRO_CODENAME main \n" | sudo tee -a /etc/apt/sources.list
-    elif [ "$DISTRO_ID" = "Debian" ]; then
+    elif [ "$DISTRO_ID" == "Debian" ]; then
       echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu intrepid main \n" | sudo tee -a /etc/apt/sources.list
     fi
       sudo apt-get update
