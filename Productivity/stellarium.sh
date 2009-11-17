@@ -23,13 +23,15 @@ echo "安裝 Stellarium"
 # http://timc.idv.tw/
 
 # required package
-sudo apt-get install stellarium stellarium-data ttf-droid
+apt-get install -f --force-yes -y
+apt-get install stellarium stellarium-data ttf-droid
+apt-get install ttf-droid
 
 export STELLARIUM_DATA='/usr/share/stellarium/data';
 export USER_DATA='/home/timdream/.stellarium';
 
 # ln font
-sudo ln -s -f /usr/share/fonts/truetype/ttf-droid/DroidSansFallback.ttf $STELLARIUM_DATA/DroidSansFallback.ttf
+ln -s -f /usr/share/fonts/truetype/ttf-droid/DroidSansFallback.ttf $STELLARIUM_DATA/DroidSansFallback.ttf
 
 # config.ini & default_config.ini sed options
 export CONFIG_SED='-r -e "s/^(app|sky)_locale([\t ]*)=([\t ]*).+$/\1_locale\2=\3zh_TW/g" 
@@ -37,15 +39,15 @@ export CONFIG_SED='-r -e "s/^(app|sky)_locale([\t ]*)=([\t ]*).+$/\1_locale\2=\3
 -e "s/^location([\t ]*)=([\t ]*).+$/location\1=\2中央大學鹿林天文台, Taiwan/g" ';
 
 # fontmap.dat
-sudo sed -i -r -e 's/^zh_(HK|TW).+$/zh_\1\tDroidSansFallback.ttf\t1.2\tDroidSansFallback.ttf\t1.2/g' \
+sed -i -r -e 's/^zh_(HK|TW).+$/zh_\1\tDroidSansFallback.ttf\t1.2\tDroidSansFallback.ttf\t1.2/g' \
 $STELLARIUM_DATA/fontmap.dat
 
 # user_locations.txt
 echo '中央大學鹿林天文台    嘉義縣/南投縣   tw  0   0,1 23.47N  120.88E 2862' | \
-sudo tee $STELLARIUM_DATA/user_locations.txt > /dev/null
+tee $STELLARIUM_DATA/user_locations.txt > /dev/null
 
 # default_config.ini
-eval sudo sed -i $CONFIG_SED $STELLARIUM_DATA/default_config.ini
+eval sed -i $CONFIG_SED $STELLARIUM_DATA/default_config.ini
 
 # config.ini (user, don't sudo)
 # don't do anything unless file exists
