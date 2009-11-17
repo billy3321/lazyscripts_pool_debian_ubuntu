@@ -27,12 +27,12 @@ apt-get -f --force-yes install stellarium stellarium-data
 
 if [ $DISTRO_ID = "Ubuntu" ]; then 
     apt-get -f --force-yes install ttf-droid
-    export STELLARIUM_FONT = "DroidSansFallback.ttf";
-    export STELLARIUM_FONT_DIR = "ttf_droid";
+    export STELLARIUM_FONT="DroidSansFallback.ttf";
+    export STELLARIUM_FONT_DIR="ttf_droid";
 elif [ $DISTRO_ID = "Debian" ]; then
     apt-get -f --force-yes install ttf-wqy-zenhei
-    export STELLARIUM_FONT = "ttf-wqy-zenhei.ttc";
-    export STELLARIUM_FONT_DIR = "wqy";
+    export STELLARIUM_FONT="ttf-wqy-zenhei.ttc";
+    export STELLARIUM_FONT_DIR="wqy";
 fi
 
 export STELLARIUM_DATA='/usr/share/stellarium/data';
