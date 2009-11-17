@@ -23,23 +23,32 @@ echo "安裝 Stellarium"
 # http://timc.idv.tw/
 
 # required package
-apt-get install -f --force-yes -y
-apt-get install stellarium stellarium-data ttf-droid
-apt-get install ttf-droid
+apt-get -f --force-yes install stellarium stellarium-data
+
+if [ $DISTRO_ID = "Ubuntu" ]; then 
+    apt-get -f --force-yes install ttf-droid
+    export STELLARIUM_FONT = "DroidSansFallback.ttf";
+    export STELLARIUM_FONT_DIR = "ttf_droid";
+elif [ $DISTRO_ID = "Debian" ]; then
+    apt-get -f --force-yes install ttf-wqy-zenhei
+    export STELLARIUM_FONT = "ttf-wqy-zenhei.ttc";
+    export STELLARIUM_FONT_DIR = "wqy";
+fi
 
 export STELLARIUM_DATA='/usr/share/stellarium/data';
-export USER_DATA='/home/timdream/.stellarium';
+
+echo "Add chinese language support."
 
 # ln font
-ln -s -f /usr/share/fonts/truetype/ttf-droid/DroidSansFallback.ttf $STELLARIUM_DATA/DroidSansFallback.ttf
+ln -s -f /usr/share/fonts/truetype/${STELLARIUM_FONT_DIR}/${STELLARIUM_FONT} ${STELLARIUM_DATA}/${STELLARIUM_FONT}
 
 # config.ini & default_config.ini sed options
-export CONFIG_SED='-r -e "s/^(app|sky)_locale([\t ]*)=([\t ]*).+$/\1_locale\2=\3zh_TW/g" 
--e "s/^base_font_name([\t ]*)=([\t ]*).+$/base_font_name\1=\2DroidSansFallback.ttf/g" 
--e "s/^location([\t ]*)=([\t ]*).+$/location\1=\2中央大學鹿林天文台, Taiwan/g" ';
+export CONFIG_SED="-r -e 's/^(app|sky)_locale([\t ]*)=([\t ]*).+$/\1_locale\2=\3zh_TW/g' 
+-e 's/^base_font_name([\t ]*)=([\t ]*).+$/base_font_name\1=\2${STELLARIUM_FONT}/g' 
+-e 's/^location([\t ]*)=([\t ]*).+$/location\1=\2中央大學鹿林天文台, Taiwan/g' ";
 
 # fontmap.dat
-sed -i -r -e 's/^zh_(HK|TW).+$/zh_\1\tDroidSansFallback.ttf\t1.2\tDroidSansFallback.ttf\t1.2/g' \
+sed -i -r -e "s/^zh_(HK|TW).+$/zh_\1\t${STELLARIUM_FONT}\t1.2\t{STELLARIUM_FONT}\t1.2/g" \
 $STELLARIUM_DATA/fontmap.dat
 
 # user_locations.txt
@@ -52,5 +61,13 @@ eval sed -i $CONFIG_SED $STELLARIUM_DATA/default_config.ini
 # config.ini (user, don't sudo)
 # don't do anything unless file exists
 # -- stellarium will copy default_config.ini at start up.
-[ -e $USER_DATA/config.ini ] \
-    && eval sed -i $CONFIG_SED $USER_DATA/config.ini
+
+#Get all user
+USERS_DIR=$(cat /etc/passwd | grep bash | cut -d ":" -f 6)
+
+for u in $USERS_DIR
+do 
+    [ -e ${u}.stellarium/config.ini ] \
+        && eval sed -i $CONFIG_SED ${u}.stellarium/config.ini
+done
+

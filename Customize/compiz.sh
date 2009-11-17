@@ -32,7 +32,7 @@ for u in $USERS
 do 
 
     #get user home directory
-    UserHome=$(cat /etc/passwd | grep bash | cut -d ":" -f 6)
+    UserHome=$(grep ${u} /etc/passwd | cut -d ":" -f 6)
 
     #build user home autostart directory
     UserHome_autostart=$UserHome/.config/autostart
