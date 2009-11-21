@@ -18,6 +18,6 @@
 
 echo "Install PSPP"
 
-apt-get install -y --force-yes pspp
+apt-get -y --force-yes install pspp
 
 #END
