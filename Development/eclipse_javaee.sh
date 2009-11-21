@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
 #
-# @name_enUS 'Install Eclipse Classic 3.4.2'
-# @name_zhTW '安裝 Eclipse Classic 3.4.2'
+# @name_enUS 'Install Eclipse JavaEE 3.5'
+# @name_zhTW '安裝 Eclipse JavaEE 3.5'
 # @desc_enUS 'Eclipse is a multi-language software development platform comprising an IDE and a plug-in system to extend it.'
 # @desc_zhTW '一個跨平台的程式撰寫工具。'
 # @warn_enUS ''
