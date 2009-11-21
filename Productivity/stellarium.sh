@@ -31,7 +31,7 @@ if [ $DISTRO_ID = "Ubuntu" ]; then
     export STELLARIUM_FONT_DIR="ttf_droid";
 elif [ $DISTRO_ID = "Debian" ]; then
     apt-get -f --force-yes install ttf-wqy-zenhei
-    export STELLARIUM_FONT="ttf-wqy-zenhei.ttc";
+    export STELLARIUM_FONT="wqy-zenhei.ttc";
     export STELLARIUM_FONT_DIR="wqy";
 fi
 
@@ -44,15 +44,15 @@ ln -s -f /usr/share/fonts/truetype/${STELLARIUM_FONT_DIR}/${STELLARIUM_FONT} ${S
 
 # config.ini & default_config.ini sed options
 export CONFIG_SED="-r -e 's/^(app|sky)_locale([\t ]*)=([\t ]*).+$/\1_locale\2=\3zh_TW/g' 
--e 's/^base_font_name([\t ]*)=([\t ]*).+$/base_font_name\1=\2${STELLARIUM_FONT}/g' 
+-e 's/^base_font_name([\t ]*)=([\t ]*).+$/base_font_name\1=\2"${STELLARIUM_FONT}"/g' 
 -e 's/^location([\t ]*)=([\t ]*).+$/location\1=\2中央大學鹿林天文台, Taiwan/g' ";
 
 # fontmap.dat
-sed -i -r -e "s/^zh_(HK|TW).+$/zh_\1\t${STELLARIUM_FONT}\t1.2\t{STELLARIUM_FONT}\t1.2/g" \
+sed -i -r -e "s/^zh_(HK|TW).+$/zh_\1\t"${STELLARIUM_FONT}"\t1.2\t"${STELLARIUM_FONT}"\t1.2/g" \
 $STELLARIUM_DATA/fontmap.dat
 
 # user_locations.txt
-echo '中央大學鹿林天文台    嘉義縣/南投縣   tw  0   0,1 23.47N  120.88E 2862' | \
+echo -e '中央大學鹿林天文台\t嘉義縣/南投縣\ttw\t0\t0,1\t23.47N\t120.88E\t2862' | \
 tee $STELLARIUM_DATA/user_locations.txt > /dev/null
 
 # default_config.ini
