@@ -1,6 +1,6 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
-# Copyright (C) 2009 王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>
+# Copyright (C) 2009 簡冠庭 Tim Guan-tin Chien (timdream) <timdream -AT- gmail.com>
 #
 # @name_enUS 'Install Stellarium'
 # @name_zhTW '安裝 Stellarium'
@@ -9,18 +9,14 @@
 # @warn_enUS ''
 # @warn_zhTW ''
 # @category 'Productivity'
-# @maintaner '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
-# @author '王綱民 Kang-Min Wang (Aminzai,阿民) <lagunawang -AT- gmail.com>'
+# @maintaner '簡冠庭 Tim Guan-tin Chien (timdream) <timdream -AT- gmail.com>'
+# @author '簡冠庭 Tim Guan-tin Chien (timdream) <timdream -AT- gmail.com>'
 # @license 'GPL'
 # @debian
 # @ubuntu 
 # @platform 'i386 amd64'
 
 echo "安裝 Stellarium"
-
-# Stellarium zh-TW configration
-# author: timdream, Aug 2009
-# http://timc.idv.tw/
 
 # required package
 apt-get -f --force-yes install stellarium stellarium-data
