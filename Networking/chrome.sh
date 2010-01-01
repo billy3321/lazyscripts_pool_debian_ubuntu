@@ -5,7 +5,7 @@
 # Released under GNU General Public License
 # Please run as root.
 #
-# @name_zhTW '安裝 Google Chrome 瀏覽器(Beta)'
+# @name_zhTW '安裝 Google Chrome 瀏覽器'
 # @desc_zhTW '將Google Chrome 瀏覽器安裝在Linux上面'
 # @warn_zhTW 'Google Chrome 瀏覽器目前仍不穩定，請小心使用。'
 # @category 'Networking'
@@ -22,6 +22,6 @@ add_google
 
 echo "正在安裝Google Chrome..."
 
-apt-get -y --force-yes install google-chrome-beta
+apt-get -y --force-yes install google-chrome
 
 
