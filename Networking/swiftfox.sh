@@ -19,7 +19,7 @@
 # @platform 'i386 AMD64'
 # @child 'Common/add-apt-sources Common/cpu-type.py'
 
-if [ "$DISTRIB_ID" == "Ubuntu" ]; then
+if [ "$DISTRO_ID" == "Ubuntu" ]; then
     . add-apt-sources
 
     add_swiftfox
@@ -36,5 +36,5 @@ if [ "$DISTRIB_ID" == "Ubuntu" ]; then
         echo '錯誤：Lazyscripts 無法辨識本機 CPU 種類，安裝 SwiftFox 失敗'
     fi
 else
-    echo "Sorry! Swiftfox3.5 is not support \"Debian Lenny\" now"
+    echo "Sorry! Swiftfox is not support \"Debian Lenny\" now"
 fi
