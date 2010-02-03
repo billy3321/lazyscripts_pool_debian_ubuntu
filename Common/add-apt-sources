@@ -66,7 +66,7 @@ function add_ubuntu_fonts() {
     if [ "$DISTRO_ID" == "Ubuntu" ]; then
       echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu $DISTRO_CODENAME main \n" | sudo tee -a /etc/apt/sources.list
     elif [ "$DISTRO_ID" == "Debian" ]; then
-      echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu intrepid main \n" | sudo tee -a /etc/apt/sources.list
+      echo -e "\n#the source of Ubuntu Fonts (Lazyscripts 新增)\ndeb http://ppa.launchpad.net/fonts/ubuntu karmic main \n" | sudo tee -a /etc/apt/sources.list
     fi
       sudo apt-get update
   else
@@ -78,13 +78,15 @@ function add_ubuntu_fonts() {
 
 #Swiftfox
 function add_swiftfox() {
-HAS_SWIFTFOX=`grep '^deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list`
-if [ -z "$HAS_SWIFTFOX" ]; then
-  echo -e "#the source of swiftfox (Lazyscripts 新增)\ndeb http://getswiftfox.com/builds/debian unstable non-free" >> /etc/apt/sources.list
-    sudo apt-get update
-  else
-    echo 'Swifrfox 套件庫已經存在'
-fi
+    if [ ! -f /etc/apt/source.list.d/swiftfox.list ];then
+        HAS_SWIFTFOX=`grep '^deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list.d/swiftfox.list`
+        if [ -z "$HAS_SWIFTFOX" ]; then
+            echo -e "#the source of swiftfox (Lazyscripts 新增)\ndeb http://getswiftfox.com/builds/debian unstable non-free" >> /etc/apt/sources.list.d/swiftfox.list
+            sudo apt-get update
+        fi
+    else
+        echo 'Swiftfox 套件庫已經存在'
+    fi
 }
 
 #WineHQ
@@ -138,43 +140,37 @@ esac
 
 #Wicd
 function add_wicd() {
- HAS_WICD=`grep '^deb http://apt.wicd.net' /etc/apt/sources.list`
-  if [ -z "$HAS_WICD" ]; then
-    if [ "$DISTRO_ID" = "Ubuntu" ]; then
-      echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRO_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
-  elif [ "$DISTRO_ID" = "Debian" ]; then
-      echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRO_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list
+    if [ ! -f /etc/apt/source.list.d/wicd.list ]; then
+        HAS_WICD=`grep '^deb http://apt.wicd.net' /etc/apt/sources.list.d/wicd.list`
+        if [ -z "$HAS_WICD" ]; then
+            echo -e "\n#the source of Wicd (Lazyscripts 新增)\ndeb http://apt.wicd.net $DISTRO_CODENAME extras \n" | sudo tee -a /etc/apt/sources.list.d/wicd.list
+            wget -q http://apt.wicd.net/wicd.gpg -O- | sudo apt-key add -
+            sudo apt-get update
+        fi
+    else
+        echo 'Wicd 套件庫已經存在'
     fi
-      wget -q http://apt.wicd.net/wicd.gpg -O- | sudo apt-key add -
-      sudo apt-get update
-  else
-      echo 'Wicd 套件庫已經存在'
-
-  fi
-
 }
 
 #VirtualBox
 function add_virtualbox() {
- HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list`
-  if [ -z "$HAS_VIRTUALBOX" ]; then
-      if [ $DISTRO_CODENAME = "jaunty" ]; then
-          echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian intrepid non-free\n" | sudo tee -a /etc/apt/sources.list
-      else
-          echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRO_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list
-      fi
-	  wget -q http://download.virtualbox.org/virtualbox/debian/sun_vbox.asc -O- | sudo apt-key add -
-      sudo apt-get update
-  else
-      echo 'VirtualBox 套件庫已經存在'
-  fi
+    if [ ! -f /etc/apt/source.list.d/virtualbox.list ]; then
+        HAS_VIRTUALBOX=`grep '^deb http://download.virtualbox.org/virtualbox/debian' /etc/apt/sources.list.d/virtualbox.list`
+        if [ -z "$HAS_VIRTUALBOX" ];then
+            echo -e "\n#the source of VirtualBox (Lazyscripts 新增)\ndeb http://download.virtualbox.org/virtualbox/debian $DISTRO_CODENAME non-free\n" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+            wget -q http://download.virtualbox.org/virtualbox/debian/sun_vbox.asc -O- | sudo apt-key add -
+            sudo apt-get update
+        fi
+    else
+        echo 'VirtualBox 套件庫已經存在'
+    fi
 }
 
 #Google Repository
 function add_google() {
 if [ ! -f /etc/apt/sources.list.d/google-repo.list ];then
     if [ $DISTRO_ID = "Ubuntu" ] || [ $DISTRO_ID = "Debian" ]; then
-        echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ stable non-free main\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
+        echo -e "\n#the source of Google Repository (Lazyscripts 新增)\ndeb http://dl.google.com/linux/deb/ testing non-free main\n" | sudo tee -a /etc/apt/sources.list.d/google-repo.list
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
         sudo apt-get update
     else
