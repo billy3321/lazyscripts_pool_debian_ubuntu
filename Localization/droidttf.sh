@@ -16,6 +16,13 @@
 
 if [ "$DISTRIB_ID" == "Ubuntu" ]; then
     if [ "$DISTRO_CODENAME" == 'karmic' ];then
+<<<<<<< HEAD:Localization/droidttf.sh
+=======
+        sudo apt-get -y --force-yes install ttf-droid
+    else
+        . add-apt-sources
+        add_ubuntu_fonts
+>>>>>>> 7bb770d87d224876a59b5eb47eadd7027561c6f9:Localization/droidttf.sh
         sudo apt-get -y --force-yes install ttf-droid
     fi
 

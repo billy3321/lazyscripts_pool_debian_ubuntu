@@ -15,13 +15,17 @@
 # @ubuntu 
 # @debian
 # @platform 'i386 amd64'
-# @child 'Common/add-apt-sources'
 
-source add-apt-sources
-add_google
+echo "正在安裝Google Chrome(Beta)"
 
-echo "正在安裝Google Chrome(Beta)..."
-
-apt-get -y --force-yes install google-chrome-beta
-
-
+case $PLAT_NAME in
+	"i386")
+   	./download-install Google_Chrome "http://dl.google.com/dl/linux/direct/google-chrome-beta_current_i386.deb"
+   	;;
+ 	"x86_64")
+   	./download-install Google_Chrome "http://dl.google.com/dl/linux/direct/google-chrome-beta_current_amd64.deb"
+	;;
+	*)
+	echo "Sorry, Lazyscripts not support $PLAT_NAME"
+	;;
+esac
